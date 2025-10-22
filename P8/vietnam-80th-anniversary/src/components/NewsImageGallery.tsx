@@ -197,8 +197,21 @@ export default function NewsImageGallery({
                   alt={image.title}
                   className="w-full h-full object-cover"
                   onError={(e) => {
-                    // Fallback for broken images
-                    e.currentTarget.src = 'https://via.placeholder.com/400x300?text=Hình+Ảnh+Lịch+Sử'
+                    // Fallback for broken images - use patriotic SVG
+                    e.currentTarget.src = `data:image/svg+xml;base64,${Buffer.from(`
+                      <svg width="400" height="300" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                          <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#dc2626;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#f59e0b;stop-opacity:1" />
+                          </linearGradient>
+                        </defs>
+                        <rect width="400" height="300" fill="url(#grad)"/>
+                        <text x="200" y="140" font-family="Arial, sans-serif" font-size="20" fill="white" text-anchor="middle" dominant-baseline="middle">Hình Ảnh Lịch Sử</text>
+                        <text x="200" y="170" font-family="Arial, sans-serif" font-size="14" fill="white" text-anchor="middle" dominant-baseline="middle">80 Năm Quốc Khánh</text>
+                        <text x="200" y="200" font-family="Arial, sans-serif" font-size="12" fill="white" text-anchor="middle" dominant-baseline="middle">Việt Nam Tự Hào</text>
+                      </svg>
+                    `).toString('base64')}`
                   }}
                 />
                 <div className="absolute top-2 right-2">

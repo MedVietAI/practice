@@ -1,0 +1,4 @@
+Review the game again, try to accomplish these tasks better:
+- Use more image resources on "các hoạt động chào mừng kỷ niệm 80 năm quốc khánh dịp 2/9/2025", from dangcongsan.vn, https://baochinhphu.vn/, and https://vtv.vn/
+- Enhance the game content, try to create a history (Lịch Sử) section - where the player can go through RPG and novelty game, try to bring the most realisitc experience where the user can come back to the past on that day and witness the monent in the most interactive way.
+- Make sure we maintain the story flow, character and design consistently and engagingly.

@@ -44,63 +44,124 @@ export default function GameModeSelector({ onStartGame }: GameModeSelectorProps)
   ]
 
   return (
-    <div className="py-12">
+    <div className="py-16 relative">
+      {/* Background Pattern */}
+      <div className="absolute inset-0 opacity-5">
+        <div className="absolute inset-0" style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23dc2626' fill-opacity='0.1'%3E%3Cpath d='M30 30c0-11.046-8.954-20-20-20s-20 8.954-20 20 8.954 20 20 20 20-8.954 20-20zm20 0c0-11.046-8.954-20-20-20s-20 8.954-20 20 8.954 20 20 20 20-8.954 20-20z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+        }} />
+      </div>
+
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
-        className="text-center mb-12"
+        className="text-center mb-16 relative z-10"
       >
-        <h2 className="text-3xl md:text-4xl font-bold text-red-800 mb-4">
-          Chọn Chế Độ Chơi
-        </h2>
-        <p className="text-lg text-gray-700 max-w-2xl mx-auto">
+        <motion.div
+          initial={{ scale: 0.8 }}
+          animate={{ scale: 1 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="inline-block"
+        >
+          <h2 className="text-4xl md:text-6xl font-black gradient-text mb-6">
+            Chọn Chế Độ Chơi
+          </h2>
+        </motion.div>
+        
+        <motion.p 
+          className="text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
+        >
           Mỗi chế độ chơi mang đến trải nghiệm học tập và giải trí khác nhau. 
           Hãy chọn chế độ phù hợp với sở thích của bạn!
-        </p>
+        </motion.p>
       </motion.div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 relative z-10">
         {gameModes.map((mode, index) => (
           <motion.div
             key={mode.id}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, y: 30, scale: 0.9 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
             transition={{ duration: 0.6, delay: index * 0.1 }}
-            whileHover={{ scale: 1.02, y: -5 }}
-            whileTap={{ scale: 0.98 }}
+            whileHover={{ 
+              scale: 1.05, 
+              y: -10,
+              rotateY: 5
+            }}
+            whileTap={{ scale: 0.95 }}
             onClick={onStartGame}
-            className="bg-white rounded-xl shadow-lg overflow-hidden cursor-pointer border-2 border-transparent hover:border-red-300 transition-all duration-300"
+            className="game-card group cursor-pointer"
           >
-            <div className={`bg-gradient-to-r ${mode.color} p-6 text-white`}>
-              <div className="flex items-center space-x-4 mb-4">
-                <div className="bg-white bg-opacity-20 p-3 rounded-lg">
+            <div className={`game-card-header text-center relative overflow-hidden`}>
+              {/* Animated background pattern */}
+              <div className="absolute inset-0 opacity-20">
+                <div className="absolute inset-0" style={{
+                  backgroundImage: `url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Cpath d='M20 20c0-5.523-4.477-10-10-10s-10 4.477-10 10 4.477 10 10 10 10-4.477 10-10zm20 0c0-5.523-4.477-10-10-10s-10 4.477-10 10 4.477 10 10 10 10-4.477 10-10z'/%3E%3C/g%3E%3C/svg%3E")`,
+                }} />
+              </div>
+              
+              <motion.div 
+                className="relative z-10"
+                whileHover={{ scale: 1.1 }}
+                transition={{ duration: 0.3 }}
+              >
+                <div className="mb-6">
                   {mode.icon}
                 </div>
-                <div>
-                  <h3 className="text-xl font-bold">{mode.title}</h3>
-                  <p className="text-sm opacity-90">{mode.description}</p>
-                </div>
+                <h3 className="text-3xl font-black mb-4">{mode.title}</h3>
+                <p className="text-lg opacity-90 leading-relaxed">{mode.description}</p>
+              </motion.div>
+              
+              {/* Floating particles */}
+              <div className="absolute inset-0 overflow-hidden pointer-events-none">
+                {[...Array(5)].map((_, i) => (
+                  <motion.div
+                    key={i}
+                    className="absolute w-2 h-2 bg-white rounded-full opacity-60"
+                    style={{
+                      left: `${Math.random() * 100}%`,
+                      top: `${Math.random() * 100}%`,
+                    }}
+                    animate={{
+                      y: [0, -20, 0],
+                      opacity: [0.6, 1, 0.6],
+                    }}
+                    transition={{
+                      duration: 2 + Math.random(),
+                      repeat: Infinity,
+                      delay: Math.random() * 2,
+                    }}
+                  />
+                ))}
               </div>
             </div>
             
-            <div className="p-6">
-              <div className="space-y-2 mb-6">
+            <div className="game-card-content">
+              <div className="space-y-3 mb-8">
                 {mode.features.map((feature, featureIndex) => (
-                  <div key={featureIndex} className="flex items-center space-x-2">
-                    <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                    <span className="text-sm text-gray-600">{feature}</span>
-                  </div>
+                  <motion.div
+                    key={featureIndex}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: featureIndex * 0.1 }}
+                    className="flex items-center space-x-3"
+                  >
+                    <div className="w-2 h-2 bg-green-500 rounded-full flex-shrink-0" />
+                    <span className="text-gray-700 font-medium">{feature}</span>
+                  </motion.div>
                 ))}
               </div>
               
               <motion.button
-                whileHover={{ scale: 1.05 }}
+                whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
-                className={`w-full bg-gradient-to-r ${mode.color} text-white py-3 px-6 rounded-lg font-semibold flex items-center justify-center space-x-2`}
+                className={`w-full vietnam-gradient text-white py-4 px-8 rounded-xl font-bold text-lg shadow-lg hover:shadow-xl transition-all duration-300`}
               >
-                <Play className="w-5 h-5" />
-                <span>Bắt Đầu Chơi</span>
+                🎮 Bắt Đầu Chơi
               </motion.button>
             </div>
           </motion.div>
@@ -112,19 +173,92 @@ export default function GameModeSelector({ onStartGame }: GameModeSelectorProps)
         initial={{ opacity: 0, scale: 0.9 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.8, delay: 0.4 }}
-        className="mt-12 bg-gradient-to-r from-red-600 via-yellow-500 to-red-600 rounded-2xl p-8 text-white text-center"
+        className="mt-16 celebration-banner text-center relative overflow-hidden"
       >
-        <div className="flex items-center justify-center mb-4">
-          <Flag className="w-8 h-8 mr-3" />
-          <h3 className="text-2xl font-bold">Sự Kiện Đặc Biệt</h3>
+        {/* Animated background */}
+        <div className="absolute inset-0">
+          <div className="absolute inset-0" style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Cpath d='M40 40c0-11.046-8.954-20-20-20s-20 8.954-20 20 8.954 20 20 20 20-8.954 20-20zm20 0c0-11.046-8.954-20-20-20s-20 8.954-20 20 8.954 20 20 20 20-8.954 20-20z'/%3E%3C/g%3E%3C/svg%3E")`,
+          }} />
         </div>
-        <p className="text-lg mb-4">
-          Nhân dịp kỷ niệm 80 năm Quốc khánh, tất cả nội dung đều miễn phí!
-        </p>
-        <div className="flex flex-wrap justify-center gap-4 text-sm">
-          <span className="bg-white bg-opacity-20 px-3 py-1 rounded-full">🎯 Nội dung chính thống</span>
-          <span className="bg-white bg-opacity-20 px-3 py-1 rounded-full">🤖 Tích hợp AI</span>
-          <span className="bg-white bg-opacity-20 px-3 py-1 rounded-full">📱 Hỗ trợ mobile</span>
+        
+        <div className="relative z-10">
+          <motion.div 
+            className="flex items-center justify-center mb-6"
+            initial={{ scale: 0.8 }}
+            animate={{ scale: 1 }}
+            transition={{ duration: 0.6, delay: 0.6 }}
+          >
+            <motion.div
+              animate={{ rotate: [0, 360] }}
+              transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
+              className="mr-4"
+            >
+              <Flag className="w-12 h-12" />
+            </motion.div>
+            <h3 className="text-4xl font-black">Sự Kiện Đặc Biệt</h3>
+          </motion.div>
+          
+          <motion.p 
+            className="text-2xl mb-8 font-semibold"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.8, delay: 0.8 }}
+          >
+            Nhân dịp kỷ niệm 80 năm Quốc khánh, tất cả nội dung đều miễn phí!
+          </motion.p>
+          
+          <motion.div 
+            className="flex flex-wrap justify-center gap-6 text-lg"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 1 }}
+          >
+            <motion.span 
+              className="bg-white bg-opacity-20 px-6 py-3 rounded-full font-semibold"
+              whileHover={{ scale: 1.05 }}
+            >
+              🎯 Nội dung chính thống
+            </motion.span>
+            <motion.span 
+              className="bg-white bg-opacity-20 px-6 py-3 rounded-full font-semibold"
+              whileHover={{ scale: 1.05 }}
+            >
+              🤖 Tích hợp AI
+            </motion.span>
+            <motion.span 
+              className="bg-white bg-opacity-20 px-6 py-3 rounded-full font-semibold"
+              whileHover={{ scale: 1.05 }}
+            >
+              📱 Hỗ trợ mobile
+            </motion.span>
+          </motion.div>
+        </div>
+        
+        {/* Floating stars */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          {[...Array(15)].map((_, i) => (
+            <motion.div
+              key={i}
+              className="absolute text-yellow-300 text-3xl"
+              style={{
+                left: `${Math.random() * 100}%`,
+                top: `${Math.random() * 100}%`,
+              }}
+              animate={{
+                y: [0, -30, 0],
+                rotate: [0, 180, 360],
+                opacity: [0.3, 1, 0.3],
+              }}
+              transition={{
+                duration: 3 + Math.random() * 2,
+                repeat: Infinity,
+                delay: Math.random() * 3,
+              }}
+            >
+              ★
+            </motion.div>
+          ))}
         </div>
       </motion.div>
     </div>

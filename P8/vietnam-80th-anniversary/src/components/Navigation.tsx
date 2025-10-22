@@ -18,23 +18,34 @@ export default function Navigation({ currentView, setCurrentView }: NavigationPr
   ] as const
 
   return (
-    <nav className="bg-white shadow-lg sticky top-0 z-50">
+    <nav className="bg-white/95 backdrop-blur-md shadow-xl sticky top-0 z-50 border-b-2 border-red-200">
       <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-16">
+        <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
-            className="flex items-center space-x-2"
+            className="flex items-center space-x-3"
           >
-            <Flag className="w-8 h-8 text-red-600" />
-            <span className="text-xl font-bold text-red-800">
-              80 Năm Quốc Khánh
-            </span>
+            <motion.div
+              animate={{ rotate: [0, 10, -10, 0] }}
+              transition={{ duration: 2, repeat: Infinity, repeatDelay: 3 }}
+              className="vietnam-gradient p-2 rounded-full shadow-lg"
+            >
+              <Flag className="w-10 h-10 text-white" />
+            </motion.div>
+            <div>
+              <span className="text-2xl font-black gradient-text">
+                80 Năm Quốc Khánh
+              </span>
+              <div className="text-sm text-gray-600 font-medium">
+                Việt Nam Tự Hào
+              </div>
+            </div>
           </motion.div>
 
           {/* Navigation Items */}
-          <div className="hidden md:flex space-x-8">
+          <div className="hidden md:flex space-x-2">
             {navItems.map((item) => {
               const Icon = item.icon
               const isActive = currentView === item.id
@@ -42,17 +53,23 @@ export default function Navigation({ currentView, setCurrentView }: NavigationPr
               return (
                 <motion.button
                   key={item.id}
-                  whileHover={{ scale: 1.05 }}
+                  whileHover={{ scale: 1.05, y: -2 }}
                   whileTap={{ scale: 0.95 }}
                   onClick={() => setCurrentView(item.id)}
-                  className={`flex items-center space-x-2 px-4 py-2 rounded-lg transition-all duration-300 ${
+                  className={`nav-item flex items-center space-x-2 px-6 py-3 rounded-xl font-semibold transition-all duration-300 ${
                     isActive
-                      ? 'bg-red-100 text-red-800 font-semibold'
-                      : 'text-gray-600 hover:text-red-600 hover:bg-red-50'
+                      ? 'text-white shadow-lg'
+                      : 'text-gray-700 hover:text-red-600'
                   }`}
                 >
                   <Icon className="w-5 h-5" />
                   <span>{item.label}</span>
+                  {isActive && (
+                    <motion.div
+                      layoutId="activeIndicator"
+                      className="absolute inset-0 vietnam-gradient rounded-xl -z-10"
+                    />
+                  )}
                 </motion.button>
               )
             })}
