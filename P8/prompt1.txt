@@ -1,0 +1,88 @@
+Prompt 1: 
+
+Rule (the game must be in Vietnamese, using React and NextJS serverless):
+- Bài thi được khai thác hình ảnh (ảnh tĩnh) trên báo điện tử Đảng Cộng Sản
+(dangcongsan.vn), Chính phủ (https://baochinhphu.vn/ ), và VTV (https://vtv.vn/ ).
+- Bài thi không sử dụng video khai thác trên Internet
+
+Topic:
+Tổng kết, phân tích các hoạt động chào mừng kỷ niệm 80 năm quốc khánh dịp 2/9/2025
+trên cả nước.
+
+Specs:
+Thiết kế một website tổng hợp thông tin về sự kiện trên
+Website cần cung cấp thông tin đầy đủ, tin cậy, bố cục logic, giao diện thẩm mỹ và thân thiện
+với người dùng.
+Hỗ trợ Web desktop và mobile
+
+
+Note: You can develop a multiple choices, Q&A, novelty, RPG, all of these game in 1 single game, must only use image sources from those websites (nowhere else), really focus on UI/UX design of this web game.
+
+You must also integrate some AI as below references:
+
+1. Gemini flash/pro for text generation:
+from openai import OpenAI
+client = OpenAI(
+  api_key=os.get_env(API_KEY)
+  base_url="https://api.thucchien.ai"
+)
+response = client.chat.completions.create(
+  model="gemini-2.5-flash", # or pro for hard case.
+  messages=[
+      {
+          "role": "user",
+          "content": "Explain the concept of API gateway in simple terms."
+      }
+  ]
+)
+print(response.choices[0].message.content)
+
+2. Gemini for img generation (really prefer image sources from those website rather than):
+import requests
+import json
+import base64
+# ---Configs ---
+AI_API_BASE = "https://api.thucchien.ai/v1"
+AI_API_KEY = os.get_env(API_KEY)
+# --- Call API ---
+url = f"{AI_API_BASE}/images/generations"
+headers = {
+  "Content-Type": "application/json",
+  "Authorization": f"Bearer {AI_API_KEY}"
+}
+data = {
+  "model": "imagen-4",
+  "prompt": "A majestic white tiger walking through a snowy forest",
+  "n": 2, # Yêu cầu 2 ảnh
+}
+try:
+  response = requests.post(url, headers=headers, data=json.dumps(data))
+  response.raise_for_status()
+  result = response.json()
+  # --- Process and save ---
+  for i, image_obj in enumerate(result['data']):
+      b64_data = image_obj['b64_json']
+      image_data = base64.b64decode(b64_data)
+      save_path = f"generated_image_{i+1}.png"
+      with open(save_path, 'wb') as f:
+          f.write(image_data)
+      print(f"Image saved to {save_path}")
+except requests.exceptions.RequestException as e:
+  print(f"An error occurred: {e}")
+  print(f"Response body: {response.text if 'response' in locals() else 'No response'}")
+
+3. Speech generation:
+from openai import OpenAI
+from pathlib import Path
+client = OpenAI(
+  api_key=os.get_env(API_KEY),
+  base_url="https://api.thucchien.ai"
+)
+speech_file_path = Path(__file__).parent / "speech_output.mp3"
+response = client.audio.speech.create(
+model="gemini-2.5-flash-preview-tts",
+voice="Zephyr",
+input="Xin chào, đây là một thử nghiệm chuyển văn bản thành giọng nói qua AI Thực Chiến gateway."
+)
+response.stream_to_file(speech_file_path)
+print(f"File âm thanh đã được lưu tại: {speech_file_path}")
