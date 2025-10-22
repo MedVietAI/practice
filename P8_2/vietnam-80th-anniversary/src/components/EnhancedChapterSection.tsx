@@ -7,6 +7,7 @@ import EnhancedQuestionCard from './EnhancedQuestionCard';
 import EnhancedGameCharacter from './EnhancedGameCharacter';
 import AnimatedBackground from './AnimatedBackground';
 import HistoricalTimeline from './HistoricalTimeline';
+import AssetStatus from './AssetStatus';
 import { localAssetsManager } from '@/lib/local-assets';
 
 interface EnhancedChapterSectionProps {
@@ -70,14 +71,20 @@ export default function EnhancedChapterSection({
     setIsCharacterSpeaking(true);
     
     // Play background speech
-    await localAssetsManager.playAudio(`chapter-${chapter.id}`);
+    try {
+      console.log(`🔊 Playing audio for chapter: chapter-${chapter.id}`);
+      await localAssetsManager.playAudio(`chapter-${chapter.id}`);
+      console.log(`✅ Audio played successfully for chapter: ${chapter.id}`);
+    } catch (error) {
+      console.error(`❌ Error playing audio for chapter ${chapter.id}:`, error);
+    }
     
     // Simulate character speaking duration
     setTimeout(() => {
       setIsCharacterSpeaking(false);
       setChapterIntro(false);
       setIsPlaying(true);
-    }, 3000);
+    }, 5000); // Increased to 5 seconds to allow audio to play
   };
 
   const handleAnswer = (isCorrect: boolean) => {
@@ -173,12 +180,28 @@ export default function EnhancedChapterSection({
                 <div className="text-sm text-gray-500">
                   Câu {currentQuestionIndex + 1}/{chapter.questions.length}
                 </div>
-                <button
-                  onClick={() => setShowTimeline(!showTimeline)}
-                  className="mt-2 px-4 py-2 bg-gray-500 text-white rounded-lg hover:bg-gray-600 transition-colors"
-                >
-                  {showTimeline ? 'Ẩn' : 'Hiện'} Dòng thời gian
-                </button>
+                <div className="flex flex-col gap-2 mt-2">
+                  <button
+                    onClick={() => setShowTimeline(!showTimeline)}
+                    className="px-4 py-2 bg-gray-500 text-white rounded-lg hover:bg-gray-600 transition-colors"
+                  >
+                    {showTimeline ? 'Ẩn' : 'Hiện'} Dòng thời gian
+                  </button>
+                  <button
+                    onClick={async () => {
+                      try {
+                        console.log(`🔊 Manual audio play for chapter: chapter-${chapter.id}`);
+                        await localAssetsManager.playAudio(`chapter-${chapter.id}`);
+                        console.log(`✅ Manual audio played successfully`);
+                      } catch (error) {
+                        console.error(`❌ Error playing audio manually:`, error);
+                      }
+                    }}
+                    className="px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600 transition-colors"
+                  >
+                    🔊 Phát âm thanh
+                  </button>
+                </div>
               </div>
             </div>
           </div>
@@ -188,6 +211,50 @@ export default function EnhancedChapterSection({
         {showTimeline && (
           <div className="bg-white bg-opacity-95 shadow-lg">
             <HistoricalTimeline currentChapter={chapter.id} />
+          </div>
+        )}
+
+        {/* Asset Status Debug */}
+        <div className="bg-white bg-opacity-95 shadow-lg">
+          <div className="max-w-7xl mx-auto px-6 py-4">
+            <AssetStatus chapterId={chapter.id} />
+          </div>
+        </div>
+
+        {/* Chapter Images Gallery */}
+        {chapterImages.length > 0 && (
+          <div className="bg-white bg-opacity-95 shadow-lg">
+            <div className="max-w-7xl mx-auto px-6 py-6">
+              <h3 className="text-2xl font-bold text-gray-800 mb-4 text-center">
+                📸 Hình ảnh lịch sử - {chapter.title}
+              </h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                {chapterImages.map((imageUrl, index) => (
+                  <div key={index} className="relative group">
+                    <div className="aspect-video rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">
+                      <Image
+                        src={imageUrl}
+                        alt={`${chapter.title} - Hình ${index + 1}`}
+                        width={300}
+                        height={200}
+                        className="w-full h-full object-cover"
+                        onError={(e) => {
+                          console.error('Error loading image:', imageUrl);
+                          e.currentTarget.src = 'https://via.placeholder.com/300x200/cccccc/666666?text=Hình+ảnh+không+tải+được';
+                        }}
+                      />
+                    </div>
+                    <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-300 rounded-lg flex items-center justify-center">
+                      <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <div className="bg-white bg-opacity-90 rounded-full p-2">
+                          <span className="text-gray-800 font-semibold">Hình {index + 1}</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         )}
 

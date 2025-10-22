@@ -89,12 +89,47 @@ class LocalAssetsManager {
 
   public async playAudio(audioKey: string): Promise<void> {
     const audioUrl = await this.getAudioUrl(audioKey);
-    if (audioUrl) {
+    if (!audioUrl) {
+      console.warn(`Audio asset not found for ID: ${audioKey}`);
+      return;
+    }
+
+    try {
+      console.log(`🔊 Attempting to play audio: ${audioUrl}`);
+      
+      // Use HTML5 Audio API with better error handling
+      const audio = new Audio(audioUrl);
+      
+      // Add event listeners for debugging
+      audio.addEventListener('loadstart', () => console.log('🔄 Audio loading started'));
+      audio.addEventListener('canplay', () => console.log('✅ Audio can play'));
+      audio.addEventListener('play', () => console.log('▶️ Audio started playing'));
+      audio.addEventListener('ended', () => console.log('⏹️ Audio finished playing'));
+      audio.addEventListener('error', (e) => console.error('❌ Audio error:', e));
+      
+      // Set audio properties
+      audio.volume = 0.7; // Set volume to 70%
+      audio.preload = 'auto';
+      
+      // Play the audio
+      const playPromise = audio.play();
+      
+      if (playPromise !== undefined) {
+        await playPromise;
+        console.log(`✅ Audio played successfully: ${audioKey}`);
+      }
+    } catch (error) {
+      console.error(`❌ Error playing audio ${audioKey}:`, error);
+      
+      // Try fallback method
       try {
+        console.log('🔄 Trying fallback audio method...');
         const audio = new Audio(audioUrl);
-        await audio.play();
-      } catch (error) {
-        console.error('Error playing audio:', error);
+        audio.play().catch(fallbackError => {
+          console.error('❌ Fallback audio also failed:', fallbackError);
+        });
+      } catch (fallbackError) {
+        console.error('❌ Fallback audio method failed:', fallbackError);
       }
     }
   }
