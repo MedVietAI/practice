@@ -7,7 +7,6 @@ import EnhancedQuestionCard from './EnhancedQuestionCard';
 import EnhancedGameCharacter from './EnhancedGameCharacter';
 import AnimatedBackground from './AnimatedBackground';
 import HistoricalTimeline from './HistoricalTimeline';
-import AssetStatus from './AssetStatus';
 import { localAssetsManager } from '@/lib/local-assets';
 
 interface EnhancedChapterSectionProps {
@@ -214,12 +213,6 @@ export default function EnhancedChapterSection({
           </div>
         )}
 
-        {/* Asset Status Debug */}
-        <div className="bg-white bg-opacity-95 shadow-lg">
-          <div className="max-w-7xl mx-auto px-6 py-4">
-            <AssetStatus chapterId={chapter.id} />
-          </div>
-        </div>
 
         {/* Chapter Images Gallery */}
         {chapterImages.length > 0 && (
@@ -232,17 +225,18 @@ export default function EnhancedChapterSection({
                 {chapterImages.map((imageUrl, index) => (
                   <div key={index} className="relative group">
                     <div className="aspect-video rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">
-                      <Image
-                        src={imageUrl}
-                        alt={`${chapter.title} - Hình ${index + 1}`}
-                        width={300}
-                        height={200}
-                        className="w-full h-full object-cover"
-                        onError={(e) => {
-                          console.error('Error loading image:', imageUrl);
-                          e.currentTarget.src = 'https://via.placeholder.com/300x200/cccccc/666666?text=Hình+ảnh+không+tải+được';
-                        }}
-                      />
+                             <img
+                               src={imageUrl}
+                               alt={`${chapter.title} - Hình ${index + 1}`}
+                               className="w-full h-full object-cover"
+                               onError={(e) => {
+                                 console.error('Error loading image:', imageUrl);
+                                 e.currentTarget.src = 'https://via.placeholder.com/300x200/cccccc/666666?text=Hình+ảnh+không+tải+được';
+                               }}
+                               onLoad={() => {
+                                 console.log('✅ Image loaded successfully:', imageUrl);
+                               }}
+                             />
                     </div>
                     <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-300 rounded-lg flex items-center justify-center">
                       <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300">

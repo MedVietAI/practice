@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { Question } from '@/lib/game-data';
+import { hintGenerator } from '@/lib/hint-generator';
 
 interface EnhancedQuestionCardProps {
   question: Question;
@@ -28,6 +29,8 @@ export default function EnhancedQuestionCard({
   const [isAnswered, setIsAnswered] = useState(false);
   const [showHint, setShowHint] = useState(false);
   const [hintsUsed, setHintsUsed] = useState(0);
+  const [aiHint, setAiHint] = useState<string>('');
+  const [isGeneratingHint, setIsGeneratingHint] = useState(false);
 
   // Reset state when question changes
   useEffect(() => {
@@ -37,6 +40,8 @@ export default function EnhancedQuestionCard({
     setIsAnswered(false);
     setShowHint(false);
     setHintsUsed(0);
+    setAiHint('');
+    setIsGeneratingHint(false);
   }, [question.id, timeLimit]);
 
   useEffect(() => {
@@ -59,10 +64,24 @@ export default function EnhancedQuestionCard({
     onAnswer(isCorrect);
   };
 
-  const handleHint = () => {
-    if (hintsUsed < 2) {
-      setShowHint(true);
+  const handleHint = async () => {
+    if (hintsUsed < 2 && !isGeneratingHint) {
+      setIsGeneratingHint(true);
       setHintsUsed(hintsUsed + 1);
+      
+      try {
+        console.log('🤖 Generating AI hint for question:', question.id);
+        const hint = await hintGenerator.generateHint(question);
+        setAiHint(hint);
+        setShowHint(true);
+        console.log('✅ AI hint generated:', hint);
+      } catch (error) {
+        console.error('❌ Error generating hint:', error);
+        // Fallback to showing hint even if generation failed
+        setShowHint(true);
+      } finally {
+        setIsGeneratingHint(false);
+      }
     }
   };
 
@@ -169,22 +188,46 @@ export default function EnhancedQuestionCard({
             <div className="text-center mb-6">
               <button
                 onClick={handleHint}
-                className="px-6 py-2 bg-yellow-500 text-white rounded-lg hover:bg-yellow-600 transition-colors duration-200"
+                disabled={isGeneratingHint}
+                className={`px-6 py-2 rounded-lg transition-colors duration-200 ${
+                  isGeneratingHint 
+                    ? 'bg-gray-400 text-gray-200 cursor-not-allowed' 
+                    : 'bg-yellow-500 text-white hover:bg-yellow-600'
+                }`}
               >
-                💡 Gợi ý ({2 - hintsUsed} lần còn lại)
+                {isGeneratingHint ? (
+                  <>
+                    <span className="inline-block animate-spin mr-2">🤖</span>
+                    Đang tạo gợi ý...
+                  </>
+                ) : (
+                  `💡 Gợi ý AI (${2 - hintsUsed} lần còn lại)`
+                )}
               </button>
             </div>
           )}
 
           {/* Hint display */}
           {showHint && !isAnswered && (
-            <div className="mb-6 p-4 bg-yellow-50 rounded-lg border-l-4 border-yellow-500">
-              <h4 className="font-semibold text-yellow-800 mb-2">💡 Gợi ý:</h4>
-              <p className="text-yellow-700">
-                {question.difficulty === 'easy' && 'Đây là câu hỏi cơ bản, hãy suy nghĩ về kiến thức lịch sử cơ bản.'}
-                {question.difficulty === 'medium' && 'Hãy nhớ lại các sự kiện lịch sử quan trọng và mốc thời gian.'}
-                {question.difficulty === 'hard' && 'Đây là câu hỏi chuyên sâu, cần kiến thức chi tiết về lịch sử Việt Nam.'}
+            <div className="mb-6 p-4 bg-gradient-to-r from-yellow-50 to-orange-50 rounded-lg border-l-4 border-yellow-500 shadow-md">
+              <h4 className="font-semibold text-yellow-800 mb-2 flex items-center">
+                <span className="mr-2">🤖</span>
+                Gợi ý AI:
+              </h4>
+              <p className="text-yellow-700 leading-relaxed">
+                {aiHint || (
+                  <span className="italic text-yellow-600">
+                    {question.difficulty === 'easy' && 'Đây là câu hỏi cơ bản, hãy suy nghĩ về kiến thức lịch sử cơ bản.'}
+                    {question.difficulty === 'medium' && 'Hãy nhớ lại các sự kiện lịch sử quan trọng và mốc thời gian.'}
+                    {question.difficulty === 'hard' && 'Đây là câu hỏi chuyên sâu, cần kiến thức chi tiết về lịch sử Việt Nam.'}
+                  </span>
+                )}
               </p>
+              {aiHint && (
+                <div className="mt-2 text-xs text-yellow-600 italic">
+                  💡 Gợi ý được tạo bởi AI để giúp bạn suy nghĩ về câu hỏi này
+                </div>
+              )}
             </div>
           )}
 

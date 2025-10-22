@@ -40,7 +40,7 @@ export default function TestAssetsWorkingPage() {
         
       } catch (error) {
         console.error('❌ Test error:', error);
-        setTestResults({ error: error.message });
+        setTestResults({ error: error instanceof Error ? error.message : 'Unknown error' });
       } finally {
         setLoading(false);
       }
