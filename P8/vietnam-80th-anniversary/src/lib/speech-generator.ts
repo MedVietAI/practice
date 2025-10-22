@@ -25,7 +25,7 @@ export class SpeechGenerator {
 
   // Generate speech for game content
   static async generateGameSpeech(content: string, type: 'narration' | 'character' | 'instruction' = 'narration') {
-    const voiceMap = {
+    const voiceMap: Record<string, 'Zephyr' | 'Nova' | 'Shimmer'> = {
       narration: 'Zephyr',
       character: 'Nova', 
       instruction: 'Shimmer'

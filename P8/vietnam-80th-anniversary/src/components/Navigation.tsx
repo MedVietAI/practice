@@ -1,17 +1,19 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Home, Gamepad2, Info, Flag } from 'lucide-react'
+import { Home, Gamepad2, Info, Flag, Clock, Image } from 'lucide-react'
 
 interface NavigationProps {
-  currentView: 'home' | 'game' | 'about'
-  setCurrentView: (view: 'home' | 'game' | 'about') => void
+  currentView: 'home' | 'game' | 'history' | 'gallery' | 'about'
+  setCurrentView: (view: 'home' | 'game' | 'history' | 'gallery' | 'about') => void
 }
 
 export default function Navigation({ currentView, setCurrentView }: NavigationProps) {
   const navItems = [
     { id: 'home', label: 'Trang Chủ', icon: Home },
     { id: 'game', label: 'Trò Chơi', icon: Gamepad2 },
+    { id: 'history', label: 'Lịch Sử', icon: Clock },
+    { id: 'gallery', label: 'Hình Ảnh', icon: Image },
     { id: 'about', label: 'Giới Thiệu', icon: Info },
   ] as const
 

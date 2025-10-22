@@ -52,10 +52,43 @@ export const historicalContent = {
       year: 2025,
       theme: 'Kỷ niệm 80 năm Quốc khánh',
       activities: [
-        'Lễ diễu binh, diễu hành',
-        'Triển lãm lịch sử',
-        'Hoạt động văn hóa, nghệ thuật',
-        'Giáo dục truyền thống cho thế hệ trẻ'
+        'Lễ diễu binh, diễu hành tại Quảng trường Ba Đình',
+        'Triển lãm "80 năm độc lập - Hành trình vinh quang"',
+        'Chương trình nghệ thuật "Tự hào Việt Nam"',
+        'Hội thảo khoa học về lịch sử dân tộc',
+        'Cuộc thi tìm hiểu lịch sử cho học sinh, sinh viên',
+        'Phát hành bộ tem kỷ niệm đặc biệt',
+        'Lễ tưởng niệm các anh hùng dân tộc',
+        'Triển lãm ảnh "Việt Nam qua các thời kỳ"',
+        'Chương trình giao lưu với các nhân chứng lịch sử',
+        'Hoạt động thiện nguyện "Nhớ ơn tiền nhân"'
+      ],
+      locations: [
+        'Hà Nội - Quảng trường Ba Đình',
+        'TP.HCM - Nhà hát Thành phố',
+        'Điện Biên Phủ - Tượng đài Chiến thắng',
+        'Huế - Kinh thành Huế',
+        'Các tỉnh thành trên toàn quốc'
+      ],
+      specialEvents: [
+        {
+          name: 'Lễ kỷ niệm chính thức',
+          date: '2/9/2025',
+          location: 'Quảng trường Ba Đình, Hà Nội',
+          description: 'Lễ diễu binh, diễu hành với sự tham gia của các lực lượng vũ trang và nhân dân'
+        },
+        {
+          name: 'Triển lãm quốc gia',
+          date: '1/9 - 15/9/2025',
+          location: 'Trung tâm Hội nghị Quốc gia',
+          description: 'Trưng bày các hiện vật, tài liệu lịch sử quý giá'
+        },
+        {
+          name: 'Chương trình nghệ thuật',
+          date: '2/9/2025',
+          location: 'Nhà hát Lớn Hà Nội',
+          description: 'Chương trình ca nhạc, múa đặc sắc về chủ đề yêu nước'
+        }
       ]
     }
   ],

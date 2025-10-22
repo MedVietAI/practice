@@ -6,10 +6,13 @@ import { Play, BookOpen, Trophy, Users, Star, Flag } from 'lucide-react'
 import GameModeSelector from '@/components/GameModeSelector'
 import HeroSection from '@/components/HeroSection'
 import GameLauncher from '@/components/GameLauncher'
+import HistorySection from '@/components/HistorySection'
+import NewsImageGallery from '@/components/NewsImageGallery'
+import CelebrationSection from '@/components/CelebrationSection'
 import ResponsiveLayout from '@/components/ResponsiveLayout'
 
 export default function Home() {
-  const [currentView, setCurrentView] = useState<'home' | 'game' | 'about'>('home')
+  const [currentView, setCurrentView] = useState<'home' | 'game' | 'history' | 'gallery' | 'about'>('home')
 
   return (
     <ResponsiveLayout currentView={currentView} setCurrentView={setCurrentView}>
@@ -20,6 +23,7 @@ export default function Home() {
             transition={{ duration: 0.8 }}
           >
             <HeroSection />
+            <CelebrationSection />
             <GameModeSelector onStartGame={() => setCurrentView('game')} />
           </motion.div>
         )}
@@ -31,6 +35,29 @@ export default function Home() {
             transition={{ duration: 0.5 }}
           >
             <GameLauncher onBack={() => setCurrentView('home')} />
+          </motion.div>
+        )}
+        
+        {currentView === 'history' && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            <HistorySection />
+          </motion.div>
+        )}
+        
+        {currentView === 'gallery' && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            <NewsImageGallery 
+              title="Hình Ảnh Kỷ Niệm 80 Năm Quốc Khánh"
+              showFilters={true}
+            />
           </motion.div>
         )}
         
@@ -59,6 +86,8 @@ export default function Home() {
                   <li>Tích hợp AI để tạo nội dung động</li>
                   <li>Giao diện thân thiện, hỗ trợ desktop và mobile</li>
                   <li>Nội dung được cập nhật từ các nguồn tin chính thống</li>
+                  <li>Hành trình lịch sử với trải nghiệm du hành thời gian</li>
+                  <li>Thư viện hình ảnh từ các nguồn tin uy tín</li>
                 </ul>
               </div>
             </div>

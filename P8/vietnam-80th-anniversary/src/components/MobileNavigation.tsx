@@ -2,11 +2,11 @@
 
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Menu, X, Home, Gamepad2, Info, Flag } from 'lucide-react'
+import { Menu, X, Home, Gamepad2, Info, Flag, Clock, Image } from 'lucide-react'
 
 interface MobileNavigationProps {
-  currentView: 'home' | 'game' | 'about'
-  setCurrentView: (view: 'home' | 'game' | 'about') => void
+  currentView: 'home' | 'game' | 'history' | 'gallery' | 'about'
+  setCurrentView: (view: 'home' | 'game' | 'history' | 'gallery' | 'about') => void
 }
 
 export default function MobileNavigation({ currentView, setCurrentView }: MobileNavigationProps) {
@@ -15,13 +15,15 @@ export default function MobileNavigation({ currentView, setCurrentView }: Mobile
   const navItems = [
     { id: 'home', label: 'Trang Chủ', icon: Home },
     { id: 'game', label: 'Trò Chơi', icon: Gamepad2 },
+    { id: 'history', label: 'Lịch Sử', icon: Clock },
+    { id: 'gallery', label: 'Hình Ảnh', icon: Image },
     { id: 'about', label: 'Giới Thiệu', icon: Info },
   ] as const
 
   const toggleMenu = () => setIsOpen(!isOpen)
   const closeMenu = () => setIsOpen(false)
 
-  const handleNavClick = (view: 'home' | 'game' | 'about') => {
+  const handleNavClick = (view: 'home' | 'game' | 'history' | 'gallery' | 'about') => {
     setCurrentView(view)
     closeMenu()
   }

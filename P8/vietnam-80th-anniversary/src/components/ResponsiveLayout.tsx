@@ -5,8 +5,8 @@ import Navigation from './Navigation'
 import MobileNavigation from './MobileNavigation'
 
 interface ResponsiveLayoutProps {
-  currentView: 'home' | 'game' | 'about'
-  setCurrentView: (view: 'home' | 'game' | 'about') => void
+  currentView: 'home' | 'game' | 'history' | 'gallery' | 'about'
+  setCurrentView: (view: 'home' | 'game' | 'history' | 'gallery' | 'about') => void
   children: React.ReactNode
 }
 
