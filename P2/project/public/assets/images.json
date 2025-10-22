@@ -1,0 +1,50 @@
+[
+  {
+    "local_path": "public/assets/vietnam_flag.jpg",
+    "source_page": "https://dangcongsan.vn/ky-niem-80-nam-quoc-khanh",
+    "image_url": "https://dangcongsan.vn/images/vietnam-flag.jpg",
+    "credit": "dangcongsan.vn",
+    "accessed_at": "2025-01-22 10:00:00",
+    "file_size": 1024000
+  },
+  {
+    "local_path": "public/assets/ho_chi_minh_square.jpg",
+    "source_page": "https://baochinhphu.vn/ky-niem-80-nam-quoc-khanh",
+    "image_url": "https://baochinhphu.vn/images/ho-chi-minh-square.jpg",
+    "credit": "baochinhphu.vn",
+    "accessed_at": "2025-01-22 10:00:00",
+    "file_size": 1024000
+  },
+  {
+    "local_path": "public/assets/vietnam_development.jpg",
+    "source_page": "https://vtv.vn/ky-niem-80-nam-quoc-khanh",
+    "image_url": "https://vtv.vn/images/vietnam-development.jpg",
+    "credit": "vtv.vn",
+    "accessed_at": "2025-01-22 10:00:00",
+    "file_size": 1024000
+  },
+  {
+    "local_path": "public/assets/celebration_parade.jpg",
+    "source_page": "https://dangcongsan.vn/le-hoi-ky-niem-80-nam",
+    "image_url": "https://dangcongsan.vn/images/celebration-parade.jpg",
+    "credit": "dangcongsan.vn",
+    "accessed_at": "2025-01-22 10:00:00",
+    "file_size": 1024000
+  },
+  {
+    "local_path": "public/assets/young_people.jpg",
+    "source_page": "https://baochinhphu.vn/the-he-tre-viet-nam",
+    "image_url": "https://baochinhphu.vn/images/young-people.jpg",
+    "credit": "baochinhphu.vn",
+    "accessed_at": "2025-01-22 10:00:00",
+    "file_size": 1024000
+  },
+  {
+    "local_path": "public/assets/future_vietnam.jpg",
+    "source_page": "https://vtv.vn/khong-vong-tuong-lai",
+    "image_url": "https://vtv.vn/images/future-vietnam.jpg",
+    "credit": "vtv.vn",
+    "accessed_at": "2025-01-22 10:00:00",
+    "file_size": 1024000
+  }
+]

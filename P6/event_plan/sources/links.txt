@@ -1,0 +1,17 @@
+# Valid image sources for Vietnam 80th Anniversary event
+# These domains are approved for image crawling
+
+# Đảng Cộng sản Việt Nam
+https://dangcongsan.vn/
+https://dangcongsan.vn/photo-gallery/
+https://dangcongsan.vn/news/
+
+# VTV - Đài Truyền hình Việt Nam  
+https://vtv.vn/
+https://vtv.vn/photo/
+https://vtv.vn/news/
+
+# Nhân Dân
+https://nhandan.vn/
+https://nhandan.vn/photo/
+https://nhandan.vn/news/

@@ -1,0 +1,306 @@
+{
+  "title": "Kế hoạch Kỷ niệm 80 năm Quốc khánh 2/9",
+  "objectives": [
+    "Tôn vinh truyền thống lịch sử vẻ vang của dân tộc Việt Nam",
+    "Giáo dục thế hệ trẻ về tinh thần yêu nước và cách mạng",
+    "Thúc đẩy tinh thần đoàn kết dân tộc và khát vọng phát triển",
+    "Khẳng định thành tựu của đất nước sau 80 năm độc lập"
+  ],
+  "scope": [
+    "Phạm vi địa lý: Toàn quốc với trọng tâm tại Hà Nội",
+    "Đối tượng tham gia: Công dân Việt Nam và kiều bào",
+    "Thời gian: 90 ngày (T-60 đến T+30) xoay quanh ngày 2/9/2025",
+    "Nội dung: Lễ kỷ niệm, triển lãm, hội thảo, hoạt động văn hóa"
+  ],
+  "stakeholders": [
+    "Ban Chấp hành Trung ương Đảng Cộng sản Việt Nam",
+    "Chính phủ và các bộ, ngành liên quan",
+    "Ủy ban Trung ương Mặt trận Tổ quốc Việt Nam",
+    "Các tổ chức chính trị - xã hội",
+    "Chính quyền địa phương các cấp",
+    "Các cơ quan truyền thông báo chí",
+    "Nhân dân và kiều bào Việt Nam"
+  ],
+  "timeline": [
+    {
+      "phase": "Giai đoạn Chuẩn bị",
+      "window": "T-60 đến T-30",
+      "workstreams": [
+        "Thành lập Ban chỉ đạo cấp Trung ương",
+        "Xây dựng kế hoạch chi tiết và phân công nhiệm vụ",
+        "Phân bổ ngân sách và huy động nguồn lực",
+        "Tuyển chọn và chuẩn bị địa điểm tổ chức",
+        "Tập huấn lực lượng tham gia"
+      ]
+    },
+    {
+      "phase": "Giai đoạn Triển khai",
+      "window": "T-30 đến T-7",
+      "workstreams": [
+        "Tổ chức các hoạt động tuyên truyền rộng rãi",
+        "Chuẩn bị hậu cần và trang thiết bị",
+        "Tập huấn và diễn tập các nghi lễ",
+        "Kiểm tra an ninh và an toàn",
+        "Phối hợp với các địa phương"
+      ]
+    },
+    {
+      "phase": "Giai đoạn Thực hiện",
+      "window": "T-7 đến T+1",
+      "workstreams": [
+        "Tổ chức lễ kỷ niệm chính thức",
+        "Các hoạt động văn hóa nghệ thuật",
+        "Truyền hình trực tiếp toàn quốc",
+        "Đảm bảo an ninh trật tự tuyệt đối",
+        "Ghi nhận và tôn vinh các cá nhân, tập thể"
+      ]
+    },
+    {
+      "phase": "Giai đoạn Kết thúc",
+      "window": "T+1 đến T+30",
+      "workstreams": [
+        "Tổng kết và đánh giá kết quả",
+        "Báo cáo tổng hợp lên cấp trên",
+        "Lưu trữ tài liệu và hiện vật",
+        "Tri ân các đơn vị tham gia",
+        "Rút kinh nghiệm cho các sự kiện tương lai"
+      ]
+    }
+  ],
+  "program": [
+    {
+      "name": "Lễ kỷ niệm chính thức",
+      "goal": "Tôn vinh 80 năm Quốc khánh với nghi lễ trang trọng",
+      "owner": "Ban Tổ chức Trung ương",
+      "resources": "Sân vận động, hệ thống âm thanh, ánh sáng chuyên nghiệp",
+      "venue": "Quảng trường Ba Đình, Hà Nội"
+    },
+    {
+      "name": "Triển lãm lịch sử",
+      "goal": "Giáo dục truyền thống cách mạng cho thế hệ trẻ",
+      "owner": "Bảo tàng Lịch sử Quốc gia",
+      "resources": "Hiện vật, tài liệu lịch sử, công nghệ trình chiếu hiện đại",
+      "venue": "Bảo tàng Lịch sử Quốc gia và các địa điểm khác"
+    },
+    {
+      "name": "Hội thảo khoa học",
+      "goal": "Nghiên cứu và khẳng định giá trị lịch sử của Cách mạng Tháng Tám",
+      "owner": "Viện Lịch sử Đảng",
+      "resources": "Chuyên gia, tài liệu nghiên cứu, hội trường",
+      "venue": "Hội trường lớn và các cơ sở nghiên cứu"
+    },
+    {
+      "name": "Chương trình văn hóa nghệ thuật",
+      "goal": "Tôn vinh tinh thần dân tộc qua các tác phẩm nghệ thuật",
+      "owner": "Bộ Văn hóa, Thể thao và Du lịch",
+      "resources": "Nghệ sĩ, diễn viên, trang thiết bị biểu diễn",
+      "venue": "Nhà hát lớn và các sân khấu"
+    }
+  ],
+  "communications": [
+    {
+      "channel": "Truyền hình",
+      "message": "Truyền hình trực tiếp lễ kỷ niệm và các hoạt động",
+      "key_dates": "2/9/2025 và các ngày trọng đại"
+    },
+    {
+      "channel": "Báo chí",
+      "message": "Đưa tin toàn diện về các hoạt động kỷ niệm",
+      "key_dates": "T-30 đến T+7"
+    },
+    {
+      "channel": "Mạng xã hội",
+      "message": "Lan tỏa thông điệp yêu nước và tinh thần dân tộc",
+      "key_dates": "T-60 đến T+30"
+    },
+    {
+      "channel": "Tuyên truyền cơ sở",
+      "message": "Tổ chức các buổi nói chuyện, triển lãm tại cơ sở",
+      "key_dates": "T-45 đến T+15"
+    }
+  ],
+  "logistics": [
+    {
+      "item": "Địa điểm tổ chức",
+      "details": "Chuẩn bị sân khấu, ghế ngồi, hệ thống âm thanh ánh sáng",
+      "deadline": "T-15"
+    },
+    {
+      "item": "Vận chuyển",
+      "details": "Đưa đón khách mời, vận chuyển thiết bị và hiện vật",
+      "deadline": "T-1"
+    },
+    {
+      "item": "Catering",
+      "details": "Phục vụ ăn uống cho khách mời và lực lượng tham gia",
+      "deadline": "T-7"
+    },
+    {
+      "item": "An ninh",
+      "details": "Bảo vệ an toàn tuyệt đối cho sự kiện",
+      "deadline": "T-3"
+    }
+  ],
+  "budget": [
+    {
+      "category": "Tổ chức sự kiện",
+      "planned": "2.000.000.000 VNĐ",
+      "notes": "Bao gồm thuê địa điểm, thiết bị, nhân lực"
+    },
+    {
+      "category": "Truyền thông",
+      "planned": "500.000.000 VNĐ",
+      "notes": "Quảng cáo, sản xuất nội dung, phát sóng"
+    },
+    {
+      "category": "Hậu cần",
+      "planned": "300.000.000 VNĐ",
+      "notes": "Vận chuyển, ăn uống, lưu trú"
+    },
+    {
+      "category": "An ninh",
+      "planned": "200.000.000 VNĐ",
+      "notes": "Bảo vệ, kiểm soát an ninh"
+    }
+  ],
+  "risk": [
+    {
+      "risk": "Thời tiết bất lợi",
+      "impact": "Cao",
+      "likelihood": "Trung bình",
+      "owner": "Ban Tổ chức",
+      "mitigation": "Chuẩn bị phương án dự phòng trong nhà và lều che"
+    },
+    {
+      "risk": "An ninh trật tự",
+      "impact": "Cao",
+      "likelihood": "Thấp",
+      "owner": "Công an",
+      "mitigation": "Tăng cường lực lượng bảo vệ và kiểm soát"
+    },
+    {
+      "risk": "Vượt ngân sách",
+      "impact": "Trung bình",
+      "likelihood": "Trung bình",
+      "owner": "Ban Tài chính",
+      "mitigation": "Kiểm soát chi phí chặt chẽ và dự trù kinh phí"
+    },
+    {
+      "risk": "Thiếu hụt nhân lực",
+      "impact": "Trung bình",
+      "likelihood": "Thấp",
+      "owner": "Ban Tổ chức",
+      "mitigation": "Huy động sớm và đào tạo bổ sung"
+    }
+  ],
+  "safety": [
+    {
+      "topic": "An toàn sức khỏe",
+      "actions": "Kiểm tra sức khỏe tham gia, chuẩn bị y tế tại chỗ"
+    },
+    {
+      "topic": "An toàn giao thông",
+      "actions": "Phân luồng giao thông, hướng dẫn đỗ xe, điều phối lưu thông"
+    },
+    {
+      "topic": "An toàn cháy nổ",
+      "actions": "Kiểm tra hệ thống điện, chuẩn bị thiết bị chữa cháy"
+    },
+    {
+      "topic": "An toàn thực phẩm",
+      "actions": "Kiểm tra nguồn gốc, đảm bảo vệ sinh an toàn thực phẩm"
+    }
+  ],
+  "sustainability": [
+    {
+      "topic": "Môi trường",
+      "actions": "Sử dụng vật liệu thân thiện, tái chế rác thải, giảm thiểu ô nhiễm"
+    },
+    {
+      "topic": "Tiết kiệm năng lượng",
+      "actions": "Sử dụng thiết bị tiết kiệm điện, năng lượng tái tạo"
+    },
+    {
+      "topic": "Giảm thiểu rác thải",
+      "actions": "Hạn chế sử dụng đồ nhựa, phân loại rác, tái sử dụng"
+    },
+    {
+      "topic": "Bảo tồn di sản",
+      "actions": "Bảo vệ các di tích lịch sử, không làm ảnh hưởng môi trường"
+    }
+  ],
+  "raci": [
+    {
+      "task": "Lập kế hoạch tổng thể",
+      "R": "Ban Chỉ đạo Trung ương",
+      "A": "Ban Tổ chức Trung ương",
+      "C": "Các bộ, ngành liên quan",
+      "I": "Chính quyền địa phương"
+    },
+    {
+      "task": "Tổ chức lễ kỷ niệm",
+      "R": "Ban Tổ chức Trung ương",
+      "A": "Đơn vị sự kiện chuyên nghiệp",
+      "C": "Ban An ninh và Công an",
+      "I": "Khách mời và người tham gia"
+    },
+    {
+      "task": "Truyền thông",
+      "R": "Ban Tuyên giáo Trung ương",
+      "A": "Cơ quan báo chí truyền thông",
+      "C": "Ban Tổ chức",
+      "I": "Công chúng và người dân"
+    },
+    {
+      "task": "Đảm bảo an ninh",
+      "R": "Bộ Công an",
+      "A": "Công an các cấp",
+      "C": "Ban Tổ chức",
+      "I": "Lực lượng dân quân tự vệ"
+    }
+  ],
+  "kpi": [
+    {
+      "metric": "Số lượng người tham gia",
+      "definition": "Tổng số người tham dự các hoạt động kỷ niệm",
+      "target": "≥ 100.000 người"
+    },
+    {
+      "metric": "Độ phủ sóng truyền thông",
+      "definition": "Số lượng bài viết, lượt xem, chia sẻ trên các kênh",
+      "target": "≥ 1.000.000 lượt tiếp cận"
+    },
+    {
+      "metric": "Mức độ hài lòng",
+      "definition": "Đánh giá từ khách mời và người tham gia",
+      "target": "≥ 90% hài lòng"
+    },
+    {
+      "metric": "An toàn tuyệt đối",
+      "definition": "Không có sự cố an ninh, an toàn nào",
+      "target": "100% an toàn"
+    }
+  ],
+  "approvals": [
+    {
+      "gate": "Phê duyệt kế hoạch tổng thể",
+      "criteria": "Kế hoạch chi tiết, ngân sách hợp lý, đảm bảo an ninh",
+      "owner": "Ban Chấp hành Trung ương Đảng"
+    },
+    {
+      "gate": "Phê duyệt ngân sách",
+      "criteria": "Ngân sách trong khả năng, hiệu quả cao, minh bạch",
+      "owner": "Bộ Tài chính"
+    },
+    {
+      "gate": "Phê duyệt an ninh",
+      "criteria": "Đảm bảo an ninh trật tự tuyệt đối",
+      "owner": "Bộ Công an"
+    },
+    {
+      "gate": "Phê duyệt địa điểm",
+      "criteria": "Phù hợp về mặt pháp lý và an toàn",
+      "owner": "Chính quyền địa phương"
+    }
+  ]
+}

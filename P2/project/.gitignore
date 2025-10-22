@@ -1,0 +1,32 @@
+# Environment variables
+.env
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+.venv/
+venv/
+
+# Generated files
+public/assets/*.jpg
+public/assets/*.png
+public/assets/*.jpeg
+public/assets/*.webp
+out/story.json
+out/story_full.txt
+comic/*.svg
+comic/*.png
+dist/*.mp4
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
