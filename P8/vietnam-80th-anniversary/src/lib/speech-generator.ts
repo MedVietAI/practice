@@ -48,7 +48,7 @@ export class SpeechGenerator {
   private static getMockSpeechResponse(text: string): string {
     // Create a simple beep sound as mock audio
     const sampleRate = 44100
-    const duration = 1 // 1 second
+    const duration = 2 // 2 seconds
     const frequency = 800 // 800 Hz beep
     const samples = sampleRate * duration
     const buffer = new ArrayBuffer(44 + samples * 2)
@@ -75,9 +75,11 @@ export class SpeechGenerator {
     writeString(36, 'data')
     view.setUint32(40, samples * 2, true)
     
-    // Generate sine wave
+    // Generate sine wave with envelope for better sound
     for (let i = 0; i < samples; i++) {
-      const sample = Math.sin(2 * Math.PI * frequency * i / sampleRate) * 0.3
+      const t = i / sampleRate
+      const envelope = Math.exp(-t * 2) // Exponential decay
+      const sample = Math.sin(2 * Math.PI * frequency * t) * 0.3 * envelope
       view.setInt16(44 + i * 2, sample * 32767, true)
     }
     

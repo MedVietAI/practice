@@ -81,12 +81,35 @@ export class NewsImageFetcher {
   }
 
   static async fetchHistoricalImages(): Promise<NewsImage[]> {
+    // Create historical patriotic SVG images
+    const createHistoricalImage = (title: string, description: string, year: string) => {
+      const svgContent = `
+        <svg width="400" height="300" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="histGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" style="stop-color:#1e40af;stop-opacity:1" />
+              <stop offset="50%" style="stop-color:#dc2626;stop-opacity:1" />
+              <stop offset="100%" style="stop-color:#f59e0b;stop-opacity:1" />
+            </linearGradient>
+          </defs>
+          <rect width="400" height="300" fill="url(#histGrad)"/>
+          <rect width="400" height="100" fill="#dc2626"/>
+          <rect width="400" height="100" y="100" fill="#fbbf24"/>
+          <rect width="400" height="100" y="200" fill="#dc2626"/>
+          <text x="200" y="40" font-family="Arial, sans-serif" font-size="14" fill="white" text-anchor="middle" dominant-baseline="middle">${title}</text>
+          <text x="200" y="150" font-family="Arial, sans-serif" font-size="16" fill="#1f2937" text-anchor="middle" dominant-baseline="middle">${year}</text>
+          <text x="200" y="260" font-family="Arial, sans-serif" font-size="10" fill="white" text-anchor="middle" dominant-baseline="middle">Lịch Sử Hào Hùng</text>
+        </svg>
+      `
+      return `data:image/svg+xml;base64,${Buffer.from(svgContent).toString('base64')}`
+    }
+
     const mockImages: NewsImage[] = [
       {
         id: 'historical-1',
         title: 'Tuyên ngôn Độc lập 2/9/1945',
         source: 'dangcongsan.vn',
-        url: 'https://dangcongsan.vn/images/independence-declaration.jpg',
+        url: createHistoricalImage('Tuyên ngôn Độc lập', 'Chủ tịch Hồ Chí Minh đọc Tuyên ngôn Độc lập tại Quảng trường Ba Đình', '1945'),
         description: 'Chủ tịch Hồ Chí Minh đọc Tuyên ngôn Độc lập tại Quảng trường Ba Đình',
         date: '1945-09-02',
         category: 'historical'
@@ -95,7 +118,7 @@ export class NewsImageFetcher {
         id: 'historical-2',
         title: 'Cách mạng Tháng Tám 1945',
         source: 'baochinhphu.vn',
-        url: 'https://baochinhphu.vn/images/august-revolution.jpg',
+        url: createHistoricalImage('Cách mạng Tháng Tám', 'Cuộc tổng khởi nghĩa giành chính quyền tháng 8/1945', '1945'),
         description: 'Cuộc tổng khởi nghĩa giành chính quyền tháng 8/1945',
         date: '1945-08-19',
         category: 'historical'
@@ -104,7 +127,7 @@ export class NewsImageFetcher {
         id: 'historical-3',
         title: 'Chiến thắng Điện Biên Phủ 1954',
         source: 'vtv.vn',
-        url: 'https://vtv.vn/images/dien-bien-phu.jpg',
+        url: createHistoricalImage('Chiến thắng Điện Biên Phủ', 'Chiến thắng quyết định kết thúc chế độ thực dân Pháp', '1954'),
         description: 'Chiến thắng quyết định kết thúc chế độ thực dân Pháp',
         date: '1954-05-07',
         category: 'historical'

@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { CheckCircle, XCircle, Clock, Trophy, Star, Flag, Heart, Award, Volume2, VolumeX, RotateCcw, Home } from 'lucide-react'
+import { CheckCircle, XCircle, Clock, Trophy, Star, Flag, Heart, Award, Volume2, VolumeX, RotateCcw, Home, ArrowRight } from 'lucide-react'
 import AIClient from '@/lib/ai-client'
 import ImageGenerator from '@/lib/image-generator'
 import SpeechGenerator from '@/lib/speech-generator'
@@ -122,38 +122,72 @@ export default function QuizGame({ topic, difficulty, onComplete }: QuizGameProp
     }
   }
 
-  const getFallbackQuestions = () => [
-    {
-      question: "Ngày Quốc khánh Việt Nam là ngày nào?",
-      options: ["1/9", "2/9", "3/9", "4/9"],
-      correct: 1,
-      explanation: "Ngày 2/9/1945, Chủ tịch Hồ Chí Minh đọc Tuyên ngôn Độc lập tại Quảng trường Ba Đình, Hà Nội."
-    },
-    {
-      question: "Ai là người đọc Tuyên ngôn Độc lập ngày 2/9/1945?",
-      options: ["Võ Nguyên Giáp", "Hồ Chí Minh", "Phạm Văn Đồng", "Trường Chinh"],
-      correct: 1,
-      explanation: "Chủ tịch Hồ Chí Minh đã đọc Tuyên ngôn Độc lập khai sinh nước Việt Nam Dân chủ Cộng hòa."
-    },
-    {
-      question: "Năm 2025 kỷ niệm bao nhiêu năm Quốc khánh?",
-      options: ["75 năm", "80 năm", "85 năm", "90 năm"],
-      correct: 1,
-      explanation: "Năm 2025 kỷ niệm 80 năm Quốc khánh Việt Nam (1945-2025)."
-    },
-    {
-      question: "Quảng trường Ba Đình nằm ở đâu?",
-      options: ["TP. Hồ Chí Minh", "Hà Nội", "Đà Nẵng", "Huế"],
-      correct: 1,
-      explanation: "Quảng trường Ba Đình nằm ở Hà Nội, nơi Chủ tịch Hồ Chí Minh đọc Tuyên ngôn Độc lập."
-    },
-    {
-      question: "Tuyên ngôn Độc lập được đọc vào năm nào?",
-      options: ["1944", "1945", "1946", "1947"],
-      correct: 1,
-      explanation: "Tuyên ngôn Độc lập được đọc vào ngày 2/9/1945, khai sinh nước Việt Nam Dân chủ Cộng hòa."
+  const getFallbackQuestions = () => {
+    const createPatrioticImage = (title: string) => {
+      const svgContent = `
+        <svg width="400" height="300" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" style="stop-color:#dc2626;stop-opacity:1" />
+              <stop offset="50%" style="stop-color:#f59e0b;stop-opacity:1" />
+              <stop offset="100%" style="stop-color:#dc2626;stop-opacity:1" />
+            </linearGradient>
+          </defs>
+          <rect width="400" height="300" fill="url(#grad)"/>
+          <rect width="400" height="100" fill="#dc2626"/>
+          <rect width="400" height="100" y="100" fill="#fbbf24"/>
+          <rect width="400" height="100" y="200" fill="#dc2626"/>
+          <text x="200" y="50" font-family="Arial, sans-serif" font-size="16" fill="white" text-anchor="middle" dominant-baseline="middle">${title}</text>
+          <text x="200" y="150" font-family="Arial, sans-serif" font-size="14" fill="#1f2937" text-anchor="middle" dominant-baseline="middle">80 Năm Quốc Khánh</text>
+          <text x="200" y="250" font-family="Arial, sans-serif" font-size="12" fill="white" text-anchor="middle" dominant-baseline="middle">Việt Nam Tự Hào</text>
+        </svg>
+      `
+      return `data:image/svg+xml;base64,${Buffer.from(svgContent).toString('base64')}`
     }
-  ]
+
+    return [
+      {
+        question: "Ngày Quốc khánh Việt Nam là ngày nào?",
+        options: ["1/9", "2/9", "3/9", "4/9"],
+        correct: 1,
+        explanation: "Ngày 2/9/1945, Chủ tịch Hồ Chí Minh đọc Tuyên ngôn Độc lập tại Quảng trường Ba Đình, Hà Nội.",
+        imageUrl: createPatrioticImage("Quốc Khánh Việt Nam"),
+        patrioticContext: "Ngày 2/9/1945 là ngày thiêng liêng nhất của dân tộc Việt Nam, đánh dấu sự ra đời của nước Việt Nam Dân chủ Cộng hòa."
+      },
+      {
+        question: "Ai là người đọc Tuyên ngôn Độc lập ngày 2/9/1945?",
+        options: ["Võ Nguyên Giáp", "Hồ Chí Minh", "Phạm Văn Đồng", "Trường Chinh"],
+        correct: 1,
+        explanation: "Chủ tịch Hồ Chí Minh đã đọc Tuyên ngôn Độc lập khai sinh nước Việt Nam Dân chủ Cộng hòa.",
+        imageUrl: createPatrioticImage("Chủ Tịch Hồ Chí Minh"),
+        patrioticContext: "Chủ tịch Hồ Chí Minh - vị lãnh tụ vĩ đại của dân tộc Việt Nam, người đã dẫn dắt nhân dân ta giành độc lập."
+      },
+      {
+        question: "Năm 2025 kỷ niệm bao nhiêu năm Quốc khánh?",
+        options: ["75 năm", "80 năm", "85 năm", "90 năm"],
+        correct: 1,
+        explanation: "Năm 2025 kỷ niệm 80 năm Quốc khánh Việt Nam (1945-2025).",
+        imageUrl: createPatrioticImage("80 Năm Quốc Khánh"),
+        patrioticContext: "80 năm qua, Việt Nam đã vượt qua nhiều thử thách và đạt được những thành tựu to lớn trong xây dựng và bảo vệ Tổ quốc."
+      },
+      {
+        question: "Quảng trường Ba Đình nằm ở đâu?",
+        options: ["TP. Hồ Chí Minh", "Hà Nội", "Đà Nẵng", "Huế"],
+        correct: 1,
+        explanation: "Quảng trường Ba Đình nằm ở Hà Nội, nơi Chủ tịch Hồ Chí Minh đọc Tuyên ngôn Độc lập.",
+        imageUrl: createPatrioticImage("Quảng Trường Ba Đình"),
+        patrioticContext: "Quảng trường Ba Đình là nơi linh thiêng, nơi Chủ tịch Hồ Chí Minh đọc Tuyên ngôn Độc lập khai sinh nước Việt Nam."
+      },
+      {
+        question: "Tuyên ngôn Độc lập được đọc vào năm nào?",
+        options: ["1944", "1945", "1946", "1947"],
+        correct: 1,
+        explanation: "Tuyên ngôn Độc lập được đọc vào ngày 2/9/1945, khai sinh nước Việt Nam Dân chủ Cộng hòa.",
+        imageUrl: createPatrioticImage("Tuyên Ngôn Độc Lập"),
+        patrioticContext: "Tuyên ngôn Độc lập là văn kiện lịch sử quan trọng nhất, tuyên bố với thế giới về sự ra đời của nước Việt Nam độc lập."
+      }
+    ]
+  }
 
   const handleAnswer = (answerIndex: number) => {
     setSelectedAnswer(answerIndex)
@@ -364,6 +398,20 @@ export default function QuizGame({ topic, difficulty, onComplete }: QuizGameProp
             </motion.button>
           </div>
 
+          {/* Question Image */}
+          {question.imageUrl && (
+            <div className="mb-6">
+              <img
+                src={question.imageUrl}
+                alt="Question illustration"
+                className="w-full h-48 object-cover rounded-lg border-2 border-red-200 shadow-lg"
+                onError={(e) => {
+                  e.currentTarget.style.display = 'none'
+                }}
+              />
+            </div>
+          )}
+
           <div className="bg-gradient-to-r from-red-50 to-yellow-50 rounded-lg p-6 mb-8 border border-red-200">
             <h3 className="text-xl font-semibold text-gray-800 text-center leading-relaxed">
               {question.question}
@@ -449,6 +497,16 @@ export default function QuizGame({ topic, difficulty, onComplete }: QuizGameProp
                 </div>
                 <p className="text-blue-700 text-lg leading-relaxed">{question.explanation}</p>
                 
+                {question.patrioticContext && (
+                  <div className="mt-4 p-4 bg-gradient-to-r from-red-50 to-yellow-50 border border-red-200 rounded-lg">
+                    <div className="flex items-center space-x-2 mb-2">
+                      <Flag className="w-5 h-5 text-red-600" />
+                      <span className="font-semibold text-red-800">Ý nghĩa lịch sử:</span>
+                    </div>
+                    <p className="text-red-700 text-sm leading-relaxed">{question.patrioticContext}</p>
+                  </div>
+                )}
+                
                 {isCorrect && (
                   <motion.div
                     initial={{ opacity: 0, scale: 0.8 }}
@@ -473,7 +531,7 @@ export default function QuizGame({ topic, difficulty, onComplete }: QuizGameProp
               initial={{ opacity: 0, scale: 0.5, y: -50 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.5, y: -50 }}
-              className="fixed top-20 right-6 z-50 bg-gradient-to-r from-yellow-400 to-yellow-500 text-white p-6 rounded-xl shadow-2xl border-2 border-yellow-300"
+              className="fixed top-20 right-6 z-50 bg-gradient-to-r from-yellow-400 to-yellow-500 text-white p-6 rounded-xl shadow-2xl border-2 border-yellow-300 max-w-sm"
             >
               <div className="flex items-center space-x-3">
                 <motion.div
@@ -482,19 +540,19 @@ export default function QuizGame({ topic, difficulty, onComplete }: QuizGameProp
                 >
                   <Award className="w-8 h-8" />
                 </motion.div>
-                <div>
+                <div className="flex-1">
                   <h3 className="font-bold text-lg">Thành Tựu Mới!</h3>
-                  <p className="text-sm">{showAchievement}</p>
+                  <p className="text-sm font-semibold">{showAchievement}</p>
                 </div>
+                <motion.button
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.9 }}
+                  onClick={() => setShowAchievement(null)}
+                  className="text-white hover:text-yellow-200 text-xl font-bold"
+                >
+                  ×
+                </motion.button>
               </div>
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                onClick={() => setShowAchievement(null)}
-                className="absolute top-2 right-2 text-white hover:text-yellow-200"
-              >
-                ×
-              </motion.button>
             </motion.div>
           )}
         </AnimatePresence>

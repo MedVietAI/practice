@@ -4,7 +4,7 @@ import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ArrowLeft, Trophy, Star, Users } from 'lucide-react'
 import QuizGame from './games/QuizGame'
-import QAGame from './games/QAGame'
+import EnhancedQAGame from './games/EnhancedQAGame'
 import RPGGame from './games/RPGGame'
 
 type GameMode = 'quiz' | 'qa' | 'rpg' | null
@@ -174,7 +174,7 @@ export default function GameLauncher({ onBack }: GameLauncherProps) {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
             >
-              <QAGame
+              <EnhancedQAGame
                 topic="Lịch sử Việt Nam - Kỷ niệm 80 năm Quốc khánh"
                 onComplete={(score) => handleGameComplete({ score })}
               />
