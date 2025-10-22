@@ -24,7 +24,7 @@ export const gameQuestions: Question[] = [
     question: 'Ai là người sáng lập Đảng Cộng sản Việt Nam?',
     options: ['Hồ Chí Minh', 'Phan Bội Châu', 'Phan Châu Trinh', 'Nguyễn Ái Quốc'],
     correctAnswer: 0,
-    explanation: 'Hồ Chí Minh (Nguyễn Ái Quốc) là người sáng lập Đảng Cộng sản Việt Nam vào ngày 3/2/1930.',
+    explanation: 'Hồ Chí Minh (Nguyễn Ái Quốc) là người sáng lập Đảng Cộng sản Việt Nam vào ngày 3/2/1930 tại Hồng Kông. Đây là bước ngoặt quan trọng trong lịch sử cách mạng Việt Nam.',
     chapter: 'colonial',
     difficulty: 'easy'
   },

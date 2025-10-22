@@ -10,7 +10,7 @@ interface GameCharacterProps {
 }
 
 export default function GameCharacter({ isSpeaking, message, onSpeechEnd }: GameCharacterProps) {
-  const [characterImage, setCharacterImage] = useState<string>('/character-placeholder.png');
+  const [characterImage, setCharacterImage] = useState<string>('/character-placeholder.svg');
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
