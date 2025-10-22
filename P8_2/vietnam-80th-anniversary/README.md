@@ -4,6 +4,9 @@
 
 Game tương tác kỷ niệm 80 năm Quốc khánh Việt Nam (2/9/1945 - 2/9/2025), kể về hành trình từ cuộc đấu tranh giành độc lập đến những thành tựu hiện đại.
 
+[Access the game](https://vietnam-80th-anniversary.vercel.app/)  
+
+
 ## Tính Năng Chính
 
 ### 🎮 Gameplay

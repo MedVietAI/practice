@@ -1,0 +1,42 @@
+{
+  "images": {
+    "character": "/character-placeholder.svg",
+    "colonial": [
+      "/assets/images/colonial-1.png",
+      "/assets/images/colonial-3.png"
+    ],
+    "revolution": [
+      "/assets/images/revolution-2.png",
+      "/assets/images/revolution-3.png"
+    ],
+    "independence": [
+      "/assets/images/independence-2.png",
+      "/assets/images/independence-3.png",
+      "/assets/images/independence-4.png"
+    ],
+    "construction": [
+      "/assets/images/construction-3.png",
+      "/assets/images/construction-4.png"
+    ],
+    "modern": [
+      "/assets/images/modern-1.png",
+      "/assets/images/modern-4.png"
+    ],
+    "timeline": [
+      "/assets/images/timeline-3.png",
+      "/assets/images/timeline-4.png"
+    ]
+  },
+  "audio": {
+    "chapter-colonial": "/assets/audio/chapter-colonial.mp3",
+    "chapter-revolution": "/assets/audio/chapter-revolution.mp3",
+    "chapter-independence": "/assets/audio/chapter-independence.mp3",
+    "chapter-construction": "/assets/audio/chapter-construction.mp3",
+    "chapter-modern": "/assets/audio/chapter-modern.mp3",
+    "timeline-explanation": "/assets/audio/timeline-explanation.mp3",
+    "game-intro": "/assets/audio/game-intro.mp3",
+    "game-completion": "/assets/audio/game-completion.mp3"
+  },
+  "generatedAt": "2025-10-22T09:10:00.000Z",
+  "version": "1.0.0"
+}

@@ -1,5 +1,5 @@
-import VietnamGame from '@/components/VietnamGame';
+import EnhancedVietnamGame from '@/components/EnhancedVietnamGame';
 
 export default function Home() {
-  return <VietnamGame />;
+  return <EnhancedVietnamGame />;
 }

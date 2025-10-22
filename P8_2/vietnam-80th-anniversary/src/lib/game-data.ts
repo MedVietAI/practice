@@ -211,47 +211,138 @@ export const gameQuestions: Question[] = [
     explanation: 'Việt Nam là nước xuất khẩu gạo đứng thứ 3 thế giới, sau Ấn Độ và Thái Lan.',
     chapter: 'modern',
     difficulty: 'medium'
+  },
+  // Additional questions for richer content
+  {
+    id: 'q21',
+    question: 'Tên thật của Hồ Chí Minh là gì?',
+    options: ['Nguyễn Sinh Cung', 'Nguyễn Tất Thành', 'Nguyễn Ái Quốc', 'Tất cả đều đúng'],
+    correctAnswer: 3,
+    explanation: 'Hồ Chí Minh có nhiều tên khác nhau: Nguyễn Sinh Cung (tên khai sinh), Nguyễn Tất Thành (tên thời trẻ), Nguyễn Ái Quốc (tên hoạt động cách mạng).',
+    chapter: 'revolution',
+    difficulty: 'hard'
+  },
+  {
+    id: 'q22',
+    question: 'Cuộc khởi nghĩa Yên Bái do ai lãnh đạo?',
+    options: ['Nguyễn Thái Học', 'Phan Bội Châu', 'Phan Châu Trinh', 'Hồ Chí Minh'],
+    correctAnswer: 0,
+    explanation: 'Cuộc khởi nghĩa Yên Bái (2/1930) do Nguyễn Thái Học lãnh đạo, là một trong những cuộc khởi nghĩa quan trọng chống thực dân Pháp.',
+    chapter: 'colonial',
+    difficulty: 'medium'
+  },
+  {
+    id: 'q23',
+    question: 'Việt Nam gia nhập Liên Hợp Quốc năm nào?',
+    options: ['1976', '1977', '1978', '1979'],
+    correctAnswer: 1,
+    explanation: 'Việt Nam gia nhập Liên Hợp Quốc ngày 20/9/1977, trở thành thành viên chính thức của tổ chức quốc tế lớn nhất thế giới.',
+    chapter: 'modern',
+    difficulty: 'hard'
+  },
+  {
+    id: 'q24',
+    question: 'Ai là người viết lời cho Quốc ca Việt Nam?',
+    options: ['Văn Cao', 'Phạm Tuyên', 'Hoàng Việt', 'Đỗ Nhuận'],
+    correctAnswer: 0,
+    explanation: 'Nhạc sĩ Văn Cao (1923-1995) vừa sáng tác nhạc vừa viết lời cho bài "Tiến quân ca" - Quốc ca Việt Nam.',
+    chapter: 'modern',
+    difficulty: 'medium'
+  },
+  {
+    id: 'q25',
+    question: 'Cuộc kháng chiến chống Pháp kéo dài bao nhiêu năm?',
+    options: ['7 năm', '8 năm', '9 năm', '10 năm'],
+    correctAnswer: 2,
+    explanation: 'Cuộc kháng chiến chống Pháp kéo dài 9 năm (1946-1954), kết thúc với chiến thắng Điện Biên Phủ lịch sử.',
+    chapter: 'construction',
+    difficulty: 'easy'
+  },
+  {
+    id: 'q26',
+    question: 'Việt Nam có bao nhiêu di sản văn hóa phi vật thể được UNESCO công nhận?',
+    options: ['10', '12', '14', '16'],
+    correctAnswer: 2,
+    explanation: 'Việt Nam có 14 di sản văn hóa phi vật thể được UNESCO công nhận, bao gồm Nhã nhạc cung đình Huế, Quan họ Bắc Ninh, Ca trù...',
+    chapter: 'modern',
+    difficulty: 'hard'
+  },
+  {
+    id: 'q27',
+    question: 'Ai là Tổng tư lệnh trong chiến dịch Hồ Chí Minh?',
+    options: ['Võ Nguyên Giáp', 'Lê Duẩn', 'Phạm Văn Đồng', 'Trường Chinh'],
+    correctAnswer: 0,
+    explanation: 'Đại tướng Võ Nguyên Giáp là Tổng tư lệnh trong chiến dịch Hồ Chí Minh lịch sử (1975), giải phóng hoàn toàn miền Nam.',
+    chapter: 'construction',
+    difficulty: 'medium'
+  },
+  {
+    id: 'q28',
+    question: 'Việt Nam phóng vệ tinh Vinasat-1 từ đâu?',
+    options: ['Trung tâm Vũ trụ Baikonur', 'Trung tâm Vũ trụ Kourou', 'Trung tâm Vũ trụ Kennedy', 'Trung tâm Vũ trụ Tanegashima'],
+    correctAnswer: 1,
+    explanation: 'Vinasat-1 được phóng từ Trung tâm Vũ trụ Kourou, Guiana thuộc Pháp, đánh dấu bước tiến quan trọng của Việt Nam trong lĩnh vực công nghệ vũ trụ.',
+    chapter: 'modern',
+    difficulty: 'hard'
+  },
+  {
+    id: 'q29',
+    question: 'Cuộc Cách mạng Tháng Tám bắt đầu từ tỉnh nào?',
+    options: ['Hà Nội', 'Hải Phòng', 'Thái Nguyên', 'Nghệ An'],
+    correctAnswer: 2,
+    explanation: 'Cuộc Cách mạng Tháng Tám bắt đầu từ Thái Nguyên ngày 14/8/1945, sau đó lan rộng ra toàn quốc.',
+    chapter: 'revolution',
+    difficulty: 'medium'
+  },
+  {
+    id: 'q30',
+    question: 'Việt Nam đạt được mục tiêu "Thoát nghèo" theo tiêu chuẩn nào?',
+    options: ['Ngân hàng Thế giới', 'Liên Hợp Quốc', 'IMF', 'Tất cả các tổ chức trên'],
+    correctAnswer: 3,
+    explanation: 'Việt Nam đạt được mục tiêu "Thoát nghèo" theo tiêu chuẩn của Ngân hàng Thế giới, Liên Hợp Quốc và IMF.',
+    chapter: 'modern',
+    difficulty: 'hard'
   }
 ];
 
 export const gameChapters: Chapter[] = [
   {
     id: 'colonial',
-    title: 'Bóng Tối Thuộc Địa',
-    description: 'Việt Nam dưới ách thống trị của thực dân Pháp',
-    duration: 2,
+    title: 'Bóng Tối Thuộc Địa (1858-1945)',
+    description: 'Hơn 80 năm dưới ách thống trị của thực dân Pháp - thời kỳ đen tối nhất trong lịch sử dân tộc. Nhân dân ta phải chịu đựng sự bóc lột tàn bạo, chia cắt đất nước, và đàn áp văn hóa. Nhưng từ trong bóng tối, những ngọn lửa yêu nước đã bùng lên mạnh mẽ.',
+    duration: 3,
     images: [],
     questions: gameQuestions.filter(q => q.chapter === 'colonial')
   },
   {
     id: 'revolution',
-    title: 'Ngọn Lửa Cách Mạng',
-    description: 'Phong trào cách mạng và sự ra đời của Đảng Cộng sản Việt Nam',
-    duration: 2.5,
+    title: 'Ngọn Lửa Cách Mạng (1911-1945)',
+    description: 'Hành trình 30 năm tìm đường cứu nước của Nguyễn Ái Quốc - Hồ Chí Minh. Từ những ngày đầu ra đi tìm đường cứu nước đến sự ra đời của Đảng Cộng sản Việt Nam, và cuộc Cách mạng Tháng Tám vĩ đại.',
+    duration: 3.5,
     images: [],
     questions: gameQuestions.filter(q => q.chapter === 'revolution')
   },
   {
     id: 'independence',
-    title: 'Giây Phút Thiêng Liêng',
-    description: 'Ngày 2/9/1945 - Tuyên ngôn Độc lập',
-    duration: 2,
+    title: 'Giây Phút Thiêng Liêng (2/9/1945)',
+    description: 'Ngày 2/9/1945 - giây phút thiêng liêng nhất trong lịch sử dân tộc. Tại Quảng trường Ba Đình, Chủ tịch Hồ Chí Minh đọc Tuyên ngôn Độc lập, khai sinh nước Việt Nam Dân chủ Cộng hòa. Hàng triệu trái tim Việt Nam cùng hòa chung nhịp đập tự do.',
+    duration: 2.5,
     images: [],
     questions: gameQuestions.filter(q => q.chapter === 'independence')
   },
   {
     id: 'construction',
-    title: 'Hành Trình Xây Dựng',
-    description: 'Việt Nam từ 1945 đến nay - những thăng trầm và phát triển',
-    duration: 2,
+    title: 'Hành Trình Xây Dựng (1945-1986)',
+    description: 'Từ ngày độc lập đến đổi mới - những thăng trầm và phát triển. Cuộc kháng chiến chống Pháp và Mỹ, xây dựng chủ nghĩa xã hội, và bước ngoặt đổi mới năm 1986 đã mở ra một trang sử mới cho dân tộc.',
+    duration: 3,
     images: [],
     questions: gameQuestions.filter(q => q.chapter === 'construction')
   },
   {
     id: 'modern',
-    title: 'Việt Nam Hiện Đại',
-    description: 'Việt Nam ngày nay - một quốc gia phát triển, hiện đại',
-    duration: 1.5,
+    title: 'Việt Nam Hiện Đại (1986-2025)',
+    description: 'Việt Nam ngày nay - một quốc gia phát triển, hiện đại với những thành tựu rực rỡ. Từ nước nghèo đói trở thành nước có thu nhập trung bình, hội nhập sâu rộng với thế giới, và khẳng định vị thế trên trường quốc tế.',
+    duration: 2.5,
     images: [],
     questions: gameQuestions.filter(q => q.chapter === 'modern')
   }

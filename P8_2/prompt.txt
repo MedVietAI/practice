@@ -1,0 +1,87 @@
+Rule (the game must be in Vietnamese, serverless):
+- Game chỉ được khai thác hình ảnh (ảnh tĩnh) trên báo điện tử Đảng Cộng Sản
+(dangcongsan.vn), Chính phủ (https://baochinhphu.vn/ ), và VTV (https://vtv.vn/ ).
+- Không sử dụng video khai thác trên Internet
+
+Topic:
+Tổng kết, phân tích các hoạt động chào mừng kỷ niệm 80 năm quốc khánh dịp 2/9/2025
+trên cả nước.
+
+Specs:
+Thiết kế một website tổng hợp thông tin về sự kiện trên
+Website cần cung cấp thông tin đầy đủ, tin cậy, bố cục logic, giao diện thẩm mỹ và thân thiện với người dùng.
+Hỗ trợ Web desktop và mobile
+
+Note: 
+Firstly design a thoughtful novelty game plot, the plot (create a file to store these plot so we can edit anytime). Must be really impactful, highlighting the the patriotism and pride of the Vietnamese people. We will have a consistent character with voice to guide user through the whole plot, we must walk them through the war, how how our soldier gone through obstacles to the final state of speech and freedom against the French colonial time. 
+Then, where Ho Chi Minh has his speech in the 2th September event. The game must take around 10 minutes of play time, and crawling visual images, from either the 3 sources provided in the rule, with some war and historical footage. 
+Next, we come to the present days with technological evolution, new buildings, achievements and all, all should be crawled from those sources too.  Across the whole plot and game play, there must be multiple times where MCQ and Q&A types of question are presented (around 10-20 questions, initially build all questions and answer if that is MCQ type), allows user to have interactive experiences with the game.
+
+Run some AI below :
+
+1. Gemini flash/pro for Q&A test and validation:
+from openai import OpenAI
+client = OpenAI(
+  api_key=os.get_env(API_KEY)
+  base_url="https://api.thucchien.ai"
+)
+response = client.chat.completions.create(
+  model="gemini-2.5-flash", # or pro for hard case.
+  messages=[
+      {
+          "role": "user",
+          "content": "Explain the concept of API gateway in simple terms."
+      }
+  ]
+)
+print(response.choices[0].message.content)
+
+2. Gemini for img generation (for consistent character generation):
+import requests
+import json
+import base64
+# ---Configs ---
+AI_API_BASE = "https://api.thucchien.ai/v1"
+AI_API_KEY = os.get_env(API_KEY)
+# --- Call API ---
+url = f"{AI_API_BASE}/images/generations"
+headers = {
+  "Content-Type": "application/json",
+  "Authorization": f"Bearer {AI_API_KEY}"
+}
+data = {
+  "model": "imagen-4",
+  "prompt": "A majestic white tiger walking through a snowy forest",
+  "n": 2, # Yêu cầu 2 ảnh
+}
+try:
+  response = requests.post(url, headers=headers, data=json.dumps(data))
+  response.raise_for_status()
+  result = response.json()
+  # --- Process and save ---
+  for i, image_obj in enumerate(result['data']):
+      b64_data = image_obj['b64_json']
+      image_data = base64.b64decode(b64_data)
+      save_path = f"generated_image_{i+1}.png"
+      with open(save_path, 'wb') as f:
+          f.write(image_data)
+      print(f"Image saved to {save_path}")
+except requests.exceptions.RequestException as e:
+  print(f"An error occurred: {e}")
+  print(f"Response body: {response.text if 'response' in locals() else 'No response'}")
+
+3. Speech generation (for the character and sometimes can have some speak across the novel):
+from openai import OpenAI
+from pathlib import Path
+client = OpenAI(
+  api_key=os.get_env(API_KEY),
+  base_url="https://api.thucchien.ai"
+)
+speech_file_path = Path(__file__).parent / "speech_output.mp3"
+response = client.audio.speech.create(
+model="gemini-2.5-flash-preview-tts",
+voice="Zephyr",
+input="Xin chào, đây là một thử nghiệm chuyển văn bản thành giọng nói qua AI Thực Chiến gateway."
+)
+response.stream_to_file(speech_file_path)
+print(f"File âm thanh đã được lưu tại: {speech_file_path}")
