@@ -39,11 +39,13 @@ export default function EnhancedChapterSection({
 
   const loadChapterImages = async () => {
     try {
+      console.log(`🔄 EnhancedChapterSection: Loading images for chapter ${chapter.id}...`);
       // Load images from local assets
       const imageUrls = await localAssetsManager.getChapterImages(chapter.id);
+      console.log(`✅ EnhancedChapterSection: Images loaded for ${chapter.id}:`, imageUrls);
       setChapterImages(imageUrls);
     } catch (error) {
-      console.error('Error loading images:', error);
+      console.error('❌ EnhancedChapterSection: Error loading images:', error);
       // Fallback to placeholder images
       setChapterImages([
         'https://via.placeholder.com/400x300/ff0000/ffffff?text=Hình+ảnh+Lịch+sử+1',

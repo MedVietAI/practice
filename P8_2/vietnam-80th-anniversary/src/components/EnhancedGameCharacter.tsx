@@ -28,10 +28,12 @@ export default function EnhancedGameCharacter({
     // Load character image from local assets
     const loadCharacter = async () => {
       try {
+        console.log('🔄 EnhancedGameCharacter: Loading character image...');
         const characterUrl = await localAssetsManager.getCharacterImage();
+        console.log('✅ EnhancedGameCharacter: Character image loaded:', characterUrl);
         setCharacterImage(characterUrl);
       } catch (error) {
-        console.error('Error loading character:', error);
+        console.error('❌ EnhancedGameCharacter: Error loading character:', error);
       } finally {
         setIsLoading(false);
       }

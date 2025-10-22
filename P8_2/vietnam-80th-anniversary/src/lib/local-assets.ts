@@ -31,18 +31,22 @@ class LocalAssetsManager {
 
   public async loadAssets(): Promise<LocalAssets> {
     if (this.loaded && this.assets) {
+      console.log('📦 Using cached assets');
       return this.assets;
     }
 
     try {
+      console.log('🔄 Fetching assets from /assets/manifest.json');
       const response = await fetch('/assets/manifest.json');
+      console.log('📡 Response status:', response.status);
+      
       if (response.ok) {
         this.assets = await response.json();
         this.loaded = true;
-        console.log('✅ Local assets loaded successfully');
+        console.log('✅ Local assets loaded successfully:', this.assets);
         return this.assets!;
       } else {
-        console.warn('⚠️ Could not load local assets, using fallbacks');
+        console.warn('⚠️ Could not load local assets, using fallbacks. Status:', response.status);
         return this.getFallbackAssets();
       }
     } catch (error) {
