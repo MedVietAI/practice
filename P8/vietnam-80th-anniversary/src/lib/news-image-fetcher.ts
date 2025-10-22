@@ -8,13 +8,39 @@ export class NewsImageFetcher {
 
   // Mock implementation for demonstration - in real app, you'd use web scraping or APIs
   static async fetchCelebrationImages(): Promise<NewsImage[]> {
+    // Create patriotic SVG images as fallbacks
+    const createPatrioticImage = (title: string, description: string, category: string) => {
+      const svgContent = `
+        <svg width="400" height="300" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" style="stop-color:#dc2626;stop-opacity:1" />
+              <stop offset="50%" style="stop-color:#f59e0b;stop-opacity:1" />
+              <stop offset="100%" style="stop-color:#dc2626;stop-opacity:1" />
+            </linearGradient>
+            <pattern id="stars" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
+              <circle cx="20" cy="20" r="2" fill="#fbbf24" opacity="0.8"/>
+            </pattern>
+          </defs>
+          <rect width="400" height="300" fill="url(#grad)"/>
+          <rect width="400" height="100" fill="#dc2626"/>
+          <rect width="400" height="100" y="100" fill="#fbbf24"/>
+          <rect width="400" height="100" y="200" fill="#dc2626"/>
+          <text x="200" y="50" font-family="Arial, sans-serif" font-size="16" fill="white" text-anchor="middle" dominant-baseline="middle">${title}</text>
+          <text x="200" y="150" font-family="Arial, sans-serif" font-size="12" fill="#1f2937" text-anchor="middle" dominant-baseline="middle">80 Năm Quốc Khánh</text>
+          <text x="200" y="250" font-family="Arial, sans-serif" font-size="10" fill="white" text-anchor="middle" dominant-baseline="middle">Việt Nam Tự Hào</text>
+        </svg>
+      `
+      return `data:image/svg+xml;base64,${Buffer.from(svgContent).toString('base64')}`
+    }
+
     // Simulate fetching images from official sources
     const mockImages: NewsImage[] = [
       {
         id: 'celebration-1',
         title: 'Lễ kỷ niệm 80 năm Quốc khánh tại Hà Nội',
         source: 'dangcongsan.vn',
-        url: 'https://dangcongsan.vn/images/80th-anniversary-hanoi.jpg',
+        url: createPatrioticImage('Lễ kỷ niệm 80 năm Quốc khánh', 'Lễ diễu binh, diễu hành kỷ niệm 80 năm Quốc khánh tại Quảng trường Ba Đình', 'celebration'),
         description: 'Lễ diễu binh, diễu hành kỷ niệm 80 năm Quốc khánh tại Quảng trường Ba Đình',
         date: '2025-09-02',
         category: 'celebration'
@@ -23,7 +49,7 @@ export class NewsImageFetcher {
         id: 'celebration-2',
         title: 'Triển lãm lịch sử 80 năm độc lập',
         source: 'baochinhphu.vn',
-        url: 'https://baochinhphu.vn/images/history-exhibition.jpg',
+        url: createPatrioticImage('Triển lãm lịch sử 80 năm độc lập', 'Triển lãm trưng bày các hiện vật lịch sử về cuộc đấu tranh giành độc lập', 'exhibition'),
         description: 'Triển lãm trưng bày các hiện vật lịch sử về cuộc đấu tranh giành độc lập',
         date: '2025-09-01',
         category: 'exhibition'
@@ -32,7 +58,7 @@ export class NewsImageFetcher {
         id: 'celebration-3',
         title: 'Hoạt động văn hóa nghệ thuật',
         source: 'vtv.vn',
-        url: 'https://vtv.vn/images/cultural-activities.jpg',
+        url: createPatrioticImage('Hoạt động văn hóa nghệ thuật', 'Các chương trình văn hóa, nghệ thuật chào mừng 80 năm Quốc khánh', 'culture'),
         description: 'Các chương trình văn hóa, nghệ thuật chào mừng 80 năm Quốc khánh',
         date: '2025-08-30',
         category: 'culture'
@@ -41,7 +67,7 @@ export class NewsImageFetcher {
         id: 'celebration-4',
         title: 'Giáo dục truyền thống cho thế hệ trẻ',
         source: 'dangcongsan.vn',
-        url: 'https://dangcongsan.vn/images/youth-education.jpg',
+        url: createPatrioticImage('Giáo dục truyền thống cho thế hệ trẻ', 'Các hoạt động giáo dục truyền thống cho học sinh, sinh viên', 'education'),
         description: 'Các hoạt động giáo dục truyền thống cho học sinh, sinh viên',
         date: '2025-08-25',
         category: 'education'

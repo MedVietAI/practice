@@ -1,7 +1,8 @@
 'use client'
 
+import { useState } from 'react'
 import { motion } from 'framer-motion'
-import { Home, Gamepad2, Info, Flag, Clock, Image } from 'lucide-react'
+import { Home, Gamepad2, Info, Flag, Clock, Image, Menu, X } from 'lucide-react'
 
 interface NavigationProps {
   currentView: 'home' | 'game' | 'history' | 'gallery' | 'about'
@@ -9,6 +10,7 @@ interface NavigationProps {
 }
 
 export default function Navigation({ currentView, setCurrentView }: NavigationProps) {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const navItems = [
     { id: 'home', label: 'Trang Chủ', icon: Home },
     { id: 'game', label: 'Trò Chơi', icon: Gamepad2 },
@@ -79,41 +81,50 @@ export default function Navigation({ currentView, setCurrentView }: NavigationPr
           <div className="md:hidden">
             <motion.button
               whileTap={{ scale: 0.95 }}
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className="p-2 rounded-lg text-gray-600 hover:text-red-600 hover:bg-red-50"
             >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-              </svg>
+              {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </motion.button>
           </div>
         </div>
 
         {/* Mobile Menu */}
-        <div className="md:hidden border-t border-gray-200">
-          <div className="py-4 space-y-2">
-            {navItems.map((item) => {
-              const Icon = item.icon
-              const isActive = currentView === item.id
-              
-              return (
-                <motion.button
-                  key={item.id}
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  onClick={() => setCurrentView(item.id)}
-                  className={`w-full flex items-center space-x-3 px-4 py-3 rounded-lg transition-all duration-300 ${
-                    isActive
-                      ? 'bg-red-100 text-red-800 font-semibold'
-                      : 'text-gray-600 hover:text-red-600 hover:bg-red-50'
-                  }`}
-                >
-                  <Icon className="w-5 h-5" />
-                  <span>{item.label}</span>
-                </motion.button>
-              )
-            })}
-          </div>
-        </div>
+        {isMobileMenuOpen && (
+          <motion.div 
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
+            className="md:hidden border-t border-gray-200"
+          >
+            <div className="py-4 space-y-2">
+              {navItems.map((item) => {
+                const Icon = item.icon
+                const isActive = currentView === item.id
+                
+                return (
+                  <motion.button
+                    key={item.id}
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    onClick={() => {
+                      setCurrentView(item.id)
+                      setIsMobileMenuOpen(false)
+                    }}
+                    className={`w-full flex items-center space-x-3 px-4 py-3 rounded-lg transition-all duration-300 ${
+                      isActive
+                        ? 'bg-red-100 text-red-800 font-semibold'
+                        : 'text-gray-600 hover:text-red-600 hover:bg-red-50'
+                    }`}
+                  >
+                    <Icon className="w-5 h-5" />
+                    <span>{item.label}</span>
+                  </motion.button>
+                )
+              })}
+            </div>
+          </motion.div>
+        )}
       </div>
     </nav>
   )

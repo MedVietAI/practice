@@ -22,7 +22,10 @@ export default function Home() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <HeroSection />
+            <HeroSection 
+              onStartGame={() => setCurrentView('game')}
+              onLearnHistory={() => setCurrentView('history')}
+            />
             <CelebrationSection />
             <GameModeSelector onStartGame={() => setCurrentView('game')} />
           </motion.div>

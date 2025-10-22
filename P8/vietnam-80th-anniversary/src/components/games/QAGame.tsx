@@ -2,8 +2,10 @@
 
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Send, Lightbulb, BookOpen, Trophy, Star } from 'lucide-react'
+import { Send, Lightbulb, BookOpen, Trophy, Star, Flag, Volume2, VolumeX, Award, Heart, RotateCcw, Home } from 'lucide-react'
 import AIClient from '@/lib/ai-client'
+import ImageGenerator from '@/lib/image-generator'
+import SpeechGenerator from '@/lib/speech-generator'
 
 interface QAGameProps {
   topic: string
@@ -25,11 +27,26 @@ export default function QAGame({ topic, onComplete }: QAGameProps) {
     generateNewQuestion()
   }, [topic])
 
+  const getFallbackQuestions = () => [
+    "Hãy kể về ý nghĩa của ngày Quốc khánh Việt Nam 2/9/1945.",
+    "Tại sao ngày 2/9/1945 được chọn làm ngày Quốc khánh của Việt Nam?",
+    "Hãy mô tả không khí tại Quảng trường Ba Đình ngày 2/9/1945.",
+    "Nêu ý nghĩa lịch sử của Tuyên ngôn Độc lập do Chủ tịch Hồ Chí Minh đọc.",
+    "Hãy kể về những thành tựu của Việt Nam trong 80 năm qua."
+  ]
+
   const generateNewQuestion = async () => {
     setIsLoading(true)
     try {
       const question = await AIClient.generateGameContent('question', topic)
-      setCurrentQuestion(question || 'Không thể tải câu hỏi. Vui lòng thử lại.')
+      if (question && question !== 'Đây là một câu hỏi thú vị về lịch sử Việt Nam. Hãy suy nghĩ kỹ và đưa ra câu trả lời của bạn.') {
+        setCurrentQuestion(question)
+      } else {
+        // Use fallback questions
+        const fallbackQuestions = getFallbackQuestions()
+        const randomIndex = Math.floor(Math.random() * fallbackQuestions.length)
+        setCurrentQuestion(fallbackQuestions[randomIndex])
+      }
       setUserAnswer('')
       setShowHint(false)
       setHint('')
@@ -37,7 +54,10 @@ export default function QAGame({ topic, onComplete }: QAGameProps) {
       setShowFeedback(false)
     } catch (error) {
       console.error('Error generating question:', error)
-      setCurrentQuestion('Có lỗi xảy ra khi tạo câu hỏi. Vui lòng thử lại.')
+      // Use fallback questions
+      const fallbackQuestions = getFallbackQuestions()
+      const randomIndex = Math.floor(Math.random() * fallbackQuestions.length)
+      setCurrentQuestion(fallbackQuestions[randomIndex])
     } finally {
       setIsLoading(false)
     }

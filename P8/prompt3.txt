@@ -1,0 +1,7 @@
+Enhance stylings in these sections: 
+
+1.The Heading, logo must be a vietnamese flag spaning across the whole top section, where there is a real vietnamese flag also on the left replacing the dummy flag. Also enhance the navbar navigation UI, matching the theme and looking well-designed interactively
+
+2. Update the history page, they should ove between each items card-by-card responsively with voice responding from script template using the AI voice generation model (pre-load all voice in first time to cache), add some real images from the 3 only web-sources.
+
+3. The RPG game is very poorly designed, using the image-gen API, preload on first time to generate some interactive character as a character to guide user as well as using some image sources from the 3 provided web-sources to walk user through an interactive and appealing story.

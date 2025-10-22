@@ -74,17 +74,29 @@ export default function CelebrationSection() {
             <Star className="w-6 h-6 mr-2 text-yellow-600" />
             Hoạt Động Chính
           </h3>
-          <div className="space-y-3">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {celebration.activities.slice(0, 6).map((activity, index) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, x: -10 }}
-                animate={{ opacity: 1, x: 0 }}
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: index * 0.1 }}
-                className="flex items-start space-x-3"
+                whileHover={{ scale: 1.05, y: -5 }}
+                className="bg-gradient-to-br from-red-50 to-yellow-50 rounded-lg p-4 border border-red-200 hover:border-red-400 transition-all duration-300 cursor-pointer group"
               >
-                <div className="w-2 h-2 bg-red-500 rounded-full mt-2 flex-shrink-0" />
-                <span className="text-sm text-gray-700">{activity}</span>
+                <div className="flex items-start space-x-3">
+                  <div className="w-8 h-8 bg-gradient-to-r from-red-500 to-yellow-500 rounded-full flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
+                    <Star className="w-4 h-4 text-white" />
+                  </div>
+                  <div className="flex-1">
+                    <h4 className="font-semibold text-gray-800 mb-1 group-hover:text-red-600 transition-colors duration-300">
+                      {activity.split(' - ')[0] || activity}
+                    </h4>
+                    <p className="text-sm text-gray-600 group-hover:text-gray-700 transition-colors duration-300">
+                      {activity.split(' - ')[1] || 'Hoạt động kỷ niệm đặc biệt'}
+                    </p>
+                  </div>
+                </div>
               </motion.div>
             ))}
           </div>
@@ -100,17 +112,29 @@ export default function CelebrationSection() {
             <MapPin className="w-6 h-6 mr-2 text-blue-600" />
             Địa Điểm Tổ Chức
           </h3>
-          <div className="space-y-3">
+          <div className="space-y-4">
             {celebration.locations.map((location, index) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, x: -10 }}
-                animate={{ opacity: 1, x: 0 }}
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: index * 0.1 }}
-                className="flex items-start space-x-3"
+                whileHover={{ scale: 1.02, x: 5 }}
+                className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg p-4 border border-blue-200 hover:border-blue-400 transition-all duration-300 cursor-pointer group"
               >
-                <div className="w-2 h-2 bg-blue-500 rounded-full mt-2 flex-shrink-0" />
-                <span className="text-sm text-gray-700">{location}</span>
+                <div className="flex items-center space-x-3">
+                  <div className="w-10 h-10 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-full flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
+                    <MapPin className="w-5 h-5 text-white" />
+                  </div>
+                  <div className="flex-1">
+                    <h4 className="font-semibold text-gray-800 group-hover:text-blue-600 transition-colors duration-300">
+                      {location.split(' - ')[0] || location}
+                    </h4>
+                    <p className="text-sm text-gray-600 group-hover:text-gray-700 transition-colors duration-300">
+                      {location.split(' - ')[1] || 'Địa điểm tổ chức sự kiện'}
+                    </p>
+                  </div>
+                </div>
               </motion.div>
             ))}
           </div>
@@ -133,18 +157,32 @@ export default function CelebrationSection() {
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: index * 0.1 }}
-                className="border border-gray-200 rounded-lg p-4 hover:border-green-300 transition-colors"
+                whileHover={{ scale: 1.02, y: -2 }}
+                className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-lg p-4 border border-green-200 hover:border-green-400 transition-all duration-300 cursor-pointer group"
               >
-                <h4 className="font-semibold text-gray-800 mb-2">{event.name}</h4>
-                <div className="flex items-center space-x-2 text-sm text-gray-600 mb-2">
-                  <Calendar className="w-4 h-4" />
-                  <span>{event.date}</span>
+                <div className="flex items-start space-x-4">
+                  <div className="w-12 h-12 bg-gradient-to-r from-green-500 to-emerald-500 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
+                    <Trophy className="w-6 h-6 text-white" />
+                  </div>
+                  <div className="flex-1">
+                    <h4 className="font-semibold text-gray-800 mb-2 group-hover:text-green-600 transition-colors duration-300">
+                      {event.name}
+                    </h4>
+                    <div className="flex items-center space-x-4 text-sm text-gray-600 mb-2">
+                      <div className="flex items-center space-x-1">
+                        <Calendar className="w-4 h-4" />
+                        <span>{event.date}</span>
+                      </div>
+                      <div className="flex items-center space-x-1">
+                        <MapPin className="w-4 h-4" />
+                        <span>{event.location}</span>
+                      </div>
+                    </div>
+                    <p className="text-sm text-gray-700 group-hover:text-gray-800 transition-colors duration-300">
+                      {event.description}
+                    </p>
+                  </div>
                 </div>
-                <div className="flex items-center space-x-2 text-sm text-gray-600 mb-2">
-                  <MapPin className="w-4 h-4" />
-                  <span>{event.location}</span>
-                </div>
-                <p className="text-sm text-gray-700">{event.description}</p>
               </motion.div>
             ))}
           </div>
@@ -228,18 +266,26 @@ export default function CelebrationSection() {
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <motion.button
-              whileHover={{ scale: 1.05 }}
+              whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.95 }}
-              className="bg-gradient-to-r from-red-600 to-yellow-500 text-white px-8 py-3 rounded-lg font-semibold flex items-center space-x-2"
+              className="bg-gradient-to-r from-red-600 to-yellow-500 text-white px-8 py-3 rounded-lg font-semibold flex items-center space-x-2 shadow-lg hover:shadow-xl transition-all duration-300"
+              onClick={() => {
+                // Add functionality for sharing moments
+                alert('Tính năng chia sẻ khoảnh khắc sẽ được triển khai sớm!')
+              }}
             >
               <Camera className="w-5 h-5" />
               <span>Chia Sẻ Khoảnh Khắc</span>
             </motion.button>
             
             <motion.button
-              whileHover={{ scale: 1.05 }}
+              whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.95 }}
-              className="bg-white text-red-600 border-2 border-red-600 px-8 py-3 rounded-lg font-semibold flex items-center space-x-2"
+              className="bg-white text-red-600 border-2 border-red-600 px-8 py-3 rounded-lg font-semibold flex items-center space-x-2 hover:bg-red-50 transition-all duration-300 shadow-lg hover:shadow-xl"
+              onClick={() => {
+                // Add functionality for learning more
+                window.scrollTo({ top: 0, behavior: 'smooth' })
+              }}
             >
               <Users className="w-5 h-5" />
               <span>Tìm Hiểu Thêm</span>

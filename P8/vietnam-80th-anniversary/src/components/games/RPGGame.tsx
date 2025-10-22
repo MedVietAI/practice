@@ -2,9 +2,10 @@
 
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Sword, Shield, Heart, Star, MapPin, BookOpen, Trophy } from 'lucide-react'
+import { Sword, Shield, Heart, Star, MapPin, BookOpen, Trophy, User, Calendar, Volume2, VolumeX, ArrowRight, RotateCcw, Home } from 'lucide-react'
 import AIClient from '@/lib/ai-client'
 import ImageGenerator from '@/lib/image-generator'
+import SpeechGenerator from '@/lib/speech-generator'
 
 interface Player {
   name: string
@@ -21,6 +22,18 @@ interface GameState {
   options: string[]
   historicalContext: string
   backgroundImage?: string
+  characterImage?: string
+  characterName?: string
+  characterRole?: string
+  location?: string
+  year?: string
+}
+
+interface Character {
+  name: string
+  role: string
+  image: string
+  description: string
 }
 
 interface RPGGameProps {
@@ -45,11 +58,87 @@ export default function RPGGame({ onComplete }: RPGGameProps) {
       'Tìm hiểu về cuộc kháng chiến chống Pháp',
       'Nghiên cứu về Cách mạng Tháng Tám 1945'
     ],
-    historicalContext: 'Việt Nam có lịch sử hàng nghìn năm với nhiều triều đại và sự kiện quan trọng.'
+    historicalContext: 'Việt Nam có lịch sử hàng nghìn năm với nhiều triều đại và sự kiện quan trọng.',
+    characterName: 'Hướng Dẫn Viên Lịch Sử',
+    characterRole: 'Người dẫn đường',
+    location: 'Hà Nội',
+    year: '2025'
   })
 
   const [isLoading, setIsLoading] = useState(false)
+  const [isVoicePlaying, setIsVoicePlaying] = useState(false)
+  const [currentCharacter, setCurrentCharacter] = useState<Character | null>(null)
+  const [voiceCache, setVoiceCache] = useState<Map<string, string>>(new Map())
   const [showAchievement, setShowAchievement] = useState<string | null>(null)
+
+  // Generate character for current scenario
+  const generateCharacter = async (scenario: string) => {
+    try {
+      const characterPrompt = `Tạo một nhân vật hướng dẫn lịch sử Việt Nam cho tình huống: ${scenario}. Nhân vật nên là một chuyên gia lịch sử, có kiến thức sâu rộng về Việt Nam.`
+      const characterImage = await ImageGenerator.generateImage(characterPrompt, 1)
+      
+      const character: Character = {
+        name: gameState.characterName || 'Hướng Dẫn Viên',
+        role: gameState.characterRole || 'Chuyên Gia Lịch Sử',
+        image: characterImage[0]?.url || '',
+        description: `Chuyên gia lịch sử Việt Nam với kiến thức sâu rộng về ${scenario}`
+      }
+      
+      setCurrentCharacter(character)
+      return character
+    } catch (error) {
+      console.error('Error generating character:', error)
+      return null
+    }
+  }
+
+  // Generate background image for scenario
+  const generateBackgroundImage = async (scenario: string) => {
+    try {
+      const backgroundPrompt = `Tạo hình ảnh nền lịch sử Việt Nam cho: ${scenario}. Hình ảnh nên thể hiện không khí lịch sử, có thể là cảnh quan, kiến trúc, hoặc sự kiện lịch sử.`
+      const backgroundImages = await ImageGenerator.generateImage(backgroundPrompt, 1)
+      
+      if (backgroundImages[0]?.url) {
+        setGameState(prev => ({
+          ...prev,
+          backgroundImage: backgroundImages[0].url
+        }))
+      }
+    } catch (error) {
+      console.error('Error generating background image:', error)
+    }
+  }
+
+  // Play character voice
+  const playCharacterVoice = async (text: string) => {
+    try {
+      setIsVoicePlaying(true)
+      const cacheKey = `voice_${text.substring(0, 50)}`
+      
+      let audioUrl = voiceCache.get(cacheKey)
+      if (!audioUrl) {
+        const newAudioUrl = await SpeechGenerator.generateSpeech(text, 'Zephyr')
+        if (newAudioUrl) {
+          audioUrl = newAudioUrl
+          setVoiceCache(prev => new Map(prev).set(cacheKey, newAudioUrl))
+        }
+      }
+      
+      if (!audioUrl) {
+        console.error('Failed to generate audio URL')
+        setIsVoicePlaying(false)
+        return
+      }
+      
+      const audio = new Audio(audioUrl)
+      audio.onended = () => setIsVoicePlaying(false)
+      audio.onerror = () => setIsVoicePlaying(false)
+      await audio.play()
+    } catch (error) {
+      console.error('Error playing character voice:', error)
+      setIsVoicePlaying(false)
+    }
+  }
 
   const handleOptionSelect = async (option: string, index: number) => {
     setIsLoading(true)
@@ -77,9 +166,13 @@ export default function RPGGame({ onComplete }: RPGGameProps) {
         setShowAchievement(`Đạt cấp độ ${newLevel}`)
       }
 
-      // Generate background image
+      // Generate character and background image
       try {
-        const images = await ImageGenerator.generateHistoricalScene(option)
+        const [character, images] = await Promise.all([
+          generateCharacter(option),
+          ImageGenerator.generateHistoricalScene(option)
+        ])
+        
         if (images.length > 0) {
           setGameState(prev => ({
             ...prev,
@@ -91,6 +184,11 @@ export default function RPGGame({ onComplete }: RPGGameProps) {
             ...prev,
             ...newScenario
           }))
+        }
+        
+        // Play character voice if character was generated
+        if (character) {
+          await playCharacterVoice(newScenario.description)
         }
       } catch {
         setGameState(prev => ({
@@ -112,11 +210,35 @@ export default function RPGGame({ onComplete }: RPGGameProps) {
 
     } catch (error) {
       console.error('Error processing choice:', error)
-      // Fallback scenario
+      // Enhanced fallback scenarios
+      const fallbackScenarios = [
+        {
+          description: `Bạn đã chọn: ${option}. Đây là một quyết định quan trọng trong hành trình khám phá lịch sử Việt Nam. Bạn cảm thấy mình đã học được nhiều điều mới mẻ.`,
+          options: [
+            'Tiếp tục khám phá thời kỳ khác',
+            'Tìm hiểu sâu hơn về chủ đề này',
+            'Quay lại lựa chọn trước'
+          ],
+          historicalContext: 'Lịch sử Việt Nam rất phong phú và đa dạng, mỗi thời kỳ đều có những đặc điểm riêng biệt.'
+        },
+        {
+          description: `Thông qua lựa chọn "${option}", bạn đã hiểu thêm về lịch sử hào hùng của dân tộc. Kiến thức của bạn ngày càng được mở rộng.`,
+          options: [
+            'Khám phá thêm về văn hóa truyền thống',
+            'Tìm hiểu về các anh hùng dân tộc',
+            'Nghiên cứu về các cuộc kháng chiến'
+          ],
+          historicalContext: 'Việt Nam có truyền thống đấu tranh bảo vệ độc lập dân tộc rất lâu đời.'
+        }
+      ]
+      
+      const randomScenario = fallbackScenarios[Math.floor(Math.random() * fallbackScenarios.length)]
+      
       setGameState(prev => ({
         ...prev,
-        description: 'Có lỗi xảy ra khi xử lý lựa chọn của bạn. Hãy thử lại.',
-        options: ['Tiếp tục hành trình']
+        description: randomScenario.description,
+        options: randomScenario.options,
+        historicalContext: randomScenario.historicalContext
       }))
     } finally {
       setIsLoading(false)
@@ -231,6 +353,51 @@ export default function RPGGame({ onComplete }: RPGGameProps) {
             )}
 
             <div className="p-6">
+              {/* Character Display */}
+              {currentCharacter && (
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="mb-6 p-4 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg border border-blue-200"
+                >
+                  <div className="flex items-center space-x-4">
+                    <div className="w-16 h-16 rounded-full overflow-hidden border-2 border-blue-300">
+                      <img
+                        src={currentCharacter.image}
+                        alt={currentCharacter.name}
+                        className="w-full h-full object-cover"
+                        onError={(e) => {
+                          e.currentTarget.src = `data:image/svg+xml;base64,${Buffer.from(`
+                            <svg width="64" height="64" xmlns="http://www.w3.org/2000/svg">
+                              <circle cx="32" cy="32" r="30" fill="#3b82f6"/>
+                              <text x="32" y="38" font-family="Arial" font-size="24" fill="white" text-anchor="middle">👤</text>
+                            </svg>
+                          `).toString('base64')}`
+                        }}
+                      />
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="text-lg font-semibold text-blue-800">{currentCharacter.name}</h3>
+                      <p className="text-sm text-blue-600">{currentCharacter.role}</p>
+                      <p className="text-xs text-blue-500 mt-1">{currentCharacter.description}</p>
+                    </div>
+                    <motion.button
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      onClick={() => playCharacterVoice(gameState.description)}
+                      disabled={isVoicePlaying}
+                      className={`p-2 rounded-lg ${
+                        isVoicePlaying
+                          ? 'bg-gray-300 text-gray-500 cursor-not-allowed'
+                          : 'bg-blue-600 text-white hover:bg-blue-700'
+                      }`}
+                    >
+                      {isVoicePlaying ? <VolumeX className="w-4 h-4" /> : <Volume2 className="w-4 h-4" />}
+                    </motion.button>
+                  </div>
+                </motion.div>
+              )}
+
               <h2 className="text-2xl font-bold text-gray-800 mb-4">
                 {gameState.currentScenario}
               </h2>

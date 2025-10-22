@@ -2,9 +2,10 @@
 
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Clock, MapPin, Users, Flag, Camera, BookOpen, Play, Pause, RotateCcw } from 'lucide-react'
+import { Clock, MapPin, Users, Flag, Camera, BookOpen, Play, Pause, RotateCcw, Volume2, VolumeX, ArrowLeft, ArrowRight } from 'lucide-react'
 import AIClient from '@/lib/ai-client'
 import ImageGenerator from '@/lib/image-generator'
+import SpeechGenerator from '@/lib/speech-generator'
 
 interface HistoricalEvent {
   id: string
@@ -44,10 +45,88 @@ export default function HistorySection() {
   })
 
   const [showAchievement, setShowAchievement] = useState<string | null>(null)
+  const [currentCardIndex, setCurrentCardIndex] = useState(0)
+  const [isVoicePlaying, setIsVoicePlaying] = useState(false)
+  const [voiceCache, setVoiceCache] = useState<Map<string, string>>(new Map())
+  const [isLoadingVoice, setIsLoadingVoice] = useState(false)
 
   useEffect(() => {
     loadHistoricalTimeline()
   }, [])
+
+  // Pre-load all voice narrations
+  useEffect(() => {
+    if (timeTravelState.timeline.length > 0) {
+      preloadAllVoices()
+    }
+  }, [timeTravelState.timeline])
+
+  const preloadAllVoices = async () => {
+    setIsLoadingVoice(true)
+    try {
+      const voicePromises = timeTravelState.timeline.map(async (event) => {
+        const cacheKey = `event_${event.id}`
+        if (voiceCache.has(cacheKey)) return
+
+        const narrationText = `Ngày ${event.date}, ${event.title}. ${event.description}. Ý nghĩa lịch sử: ${event.significance}`
+        const audioUrl = await SpeechGenerator.generateSpeech(narrationText, 'Zephyr')
+        setVoiceCache(prev => new Map(prev).set(cacheKey, audioUrl))
+      })
+      
+      await Promise.all(voicePromises)
+    } catch (error) {
+      console.error('Error preloading voices:', error)
+    } finally {
+      setIsLoadingVoice(false)
+    }
+  }
+
+  const playCurrentCardVoice = async () => {
+    if (timeTravelState.timeline.length === 0) return
+    
+    const currentEvent = timeTravelState.timeline[currentCardIndex]
+    const cacheKey = `event_${currentEvent.id}`
+    
+    try {
+      setIsVoicePlaying(true)
+      let audioUrl = voiceCache.get(cacheKey)
+      
+      if (!audioUrl) {
+        const narrationText = `Ngày ${currentEvent.date}, ${currentEvent.title}. ${currentEvent.description}. Ý nghĩa lịch sử: ${currentEvent.significance}`
+        const newAudioUrl = await SpeechGenerator.generateSpeech(narrationText, 'Zephyr')
+        if (newAudioUrl) {
+          audioUrl = newAudioUrl
+          setVoiceCache(prev => new Map(prev).set(cacheKey, newAudioUrl))
+        }
+      }
+      
+      if (!audioUrl) {
+        console.error('Failed to generate audio URL')
+        setIsVoicePlaying(false)
+        return
+      }
+      
+      const audio = new Audio(audioUrl)
+      audio.onended = () => setIsVoicePlaying(false)
+      audio.onerror = () => setIsVoicePlaying(false)
+      await audio.play()
+    } catch (error) {
+      console.error('Error playing voice:', error)
+      setIsVoicePlaying(false)
+    }
+  }
+
+  const nextCard = () => {
+    if (currentCardIndex < timeTravelState.timeline.length - 1) {
+      setCurrentCardIndex(prev => prev + 1)
+    }
+  }
+
+  const prevCard = () => {
+    if (currentCardIndex > 0) {
+      setCurrentCardIndex(prev => prev - 1)
+    }
+  }
 
   const loadHistoricalTimeline = async () => {
     try {
@@ -200,107 +279,150 @@ export default function HistorySection() {
       </motion.div>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-        {/* Main Time Travel Interface */}
+        {/* Card Navigation Interface */}
         <div className="lg:col-span-2">
-          <motion.div
-            key={timeTravelState.currentEvent?.id}
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            className="bg-white rounded-xl shadow-lg overflow-hidden"
-          >
-            {/* Event Header */}
-            <div className="bg-gradient-to-r from-red-600 to-yellow-500 p-6 text-white">
-              <div className="flex items-center justify-between mb-4">
-                <div className="flex items-center space-x-3">
-                  <MapPin className="w-6 h-6" />
-                  <span className="font-semibold">{timeTravelState.currentEvent?.location}</span>
+          {timeTravelState.timeline.length > 0 && (
+            <motion.div
+              key={currentCardIndex}
+              initial={{ opacity: 0, x: 50 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -50 }}
+              className="bg-white rounded-xl shadow-lg overflow-hidden"
+            >
+              {/* Card Header */}
+              <div className="bg-gradient-to-r from-red-600 to-yellow-500 p-6 text-white">
+                <div className="flex items-center justify-between mb-4">
+                  <div className="flex items-center space-x-3">
+                    <MapPin className="w-6 h-6" />
+                    <span className="font-semibold">{timeTravelState.timeline[currentCardIndex]?.location}</span>
+                  </div>
+                  <div className="flex items-center space-x-2">
+                    <Clock className="w-5 h-5" />
+                    <span className="font-semibold">{timeTravelState.timeline[currentCardIndex]?.date}</span>
+                  </div>
                 </div>
-                <div className="flex items-center space-x-2">
-                  <Clock className="w-5 h-5" />
-                  <span className="font-semibold">{timeTravelState.currentEvent?.date}</span>
-                </div>
-              </div>
-              
-              <h3 className="text-2xl font-bold mb-2">
-                {timeTravelState.currentEvent?.title}
-              </h3>
-              
-              <p className="text-lg opacity-90">
-                {timeTravelState.currentEvent?.description}
-              </p>
-            </div>
-
-            {/* Event Content */}
-            <div className="p-6">
-              {/* Key Figures */}
-              <div className="mb-6">
-                <h4 className="text-lg font-semibold text-gray-800 mb-3 flex items-center">
-                  <Users className="w-5 h-5 mr-2 text-blue-600" />
-                  Nhân vật lịch sử
-                </h4>
-                <div className="flex flex-wrap gap-2">
-                  {timeTravelState.currentEvent?.keyFigures.map((figure, index) => (
-                    <span
-                      key={index}
-                      className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium"
-                    >
-                      {figure}
-                    </span>
-                  ))}
-                </div>
-              </div>
-
-              {/* Significance */}
-              <div className="mb-6">
-                <h4 className="text-lg font-semibold text-gray-800 mb-3 flex items-center">
-                  <Flag className="w-5 h-5 mr-2 text-red-600" />
-                  Ý nghĩa lịch sử
-                </h4>
-                <p className="text-gray-700 bg-red-50 p-4 rounded-lg">
-                  {timeTravelState.currentEvent?.significance}
+                
+                <h3 className="text-2xl font-bold mb-2">
+                  {timeTravelState.timeline[currentCardIndex]?.title}
+                </h3>
+                
+                <p className="text-lg opacity-90">
+                  {timeTravelState.timeline[currentCardIndex]?.description}
                 </p>
               </div>
 
-              {/* Time Travel Controls */}
-              <div className="flex items-center justify-center space-x-4">
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  onClick={timeTravelState.isPlaying ? pauseTimeTravel : startTimeTravel}
-                  className="bg-gradient-to-r from-green-600 to-green-500 text-white px-6 py-3 rounded-lg font-semibold flex items-center space-x-2"
-                >
-                  {timeTravelState.isPlaying ? <Pause className="w-5 h-5" /> : <Play className="w-5 h-5" />}
-                  <span>{timeTravelState.isPlaying ? 'Tạm Dừng' : 'Bắt Đầu'}</span>
-                </motion.button>
-
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  onClick={resetTimeTravel}
-                  className="bg-gray-500 text-white px-6 py-3 rounded-lg font-semibold flex items-center space-x-2"
-                >
-                  <RotateCcw className="w-5 h-5" />
-                  <span>Khởi Động Lại</span>
-                </motion.button>
-              </div>
-
-              {/* Progress Bar */}
-              <div className="mt-6">
-                <div className="flex justify-between items-center mb-2">
-                  <span className="text-sm font-medium text-gray-600">Tiến độ du hành</span>
-                  <span className="text-sm font-medium text-gray-600">{Math.round(timeTravelState.progress)}%</span>
+              {/* Card Content */}
+              <div className="p-6">
+                {/* Key Figures */}
+                <div className="mb-6">
+                  <h4 className="text-lg font-semibold text-gray-800 mb-3 flex items-center">
+                    <Users className="w-5 h-5 mr-2 text-blue-600" />
+                    Nhân vật lịch sử
+                  </h4>
+                  <div className="flex flex-wrap gap-2">
+                    {timeTravelState.timeline[currentCardIndex]?.keyFigures.map((figure, index) => (
+                      <span
+                        key={index}
+                        className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium"
+                      >
+                        {figure}
+                      </span>
+                    ))}
+                  </div>
                 </div>
-                <div className="w-full bg-gray-200 rounded-full h-3">
-                  <motion.div
-                    className="bg-gradient-to-r from-red-500 to-yellow-500 h-3 rounded-full"
-                    initial={{ width: 0 }}
-                    animate={{ width: `${timeTravelState.progress}%` }}
-                    transition={{ duration: 0.5 }}
-                  />
+
+                {/* Significance */}
+                <div className="mb-6">
+                  <h4 className="text-lg font-semibold text-gray-800 mb-3 flex items-center">
+                    <Flag className="w-5 h-5 mr-2 text-red-600" />
+                    Ý nghĩa lịch sử
+                  </h4>
+                  <p className="text-gray-700 bg-red-50 p-4 rounded-lg">
+                    {timeTravelState.timeline[currentCardIndex]?.significance}
+                  </p>
+                </div>
+
+                {/* Card Navigation Controls */}
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center space-x-4">
+                    <motion.button
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      onClick={prevCard}
+                      disabled={currentCardIndex === 0}
+                      className={`px-4 py-2 rounded-lg font-semibold flex items-center space-x-2 ${
+                        currentCardIndex === 0
+                          ? 'bg-gray-300 text-gray-500 cursor-not-allowed'
+                          : 'bg-blue-600 text-white hover:bg-blue-700'
+                      }`}
+                    >
+                      <ArrowLeft className="w-4 h-4" />
+                      <span>Trước</span>
+                    </motion.button>
+
+                    <motion.button
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      onClick={nextCard}
+                      disabled={currentCardIndex === timeTravelState.timeline.length - 1}
+                      className={`px-4 py-2 rounded-lg font-semibold flex items-center space-x-2 ${
+                        currentCardIndex === timeTravelState.timeline.length - 1
+                          ? 'bg-gray-300 text-gray-500 cursor-not-allowed'
+                          : 'bg-blue-600 text-white hover:bg-blue-700'
+                      }`}
+                    >
+                      <span>Sau</span>
+                      <ArrowRight className="w-4 h-4" />
+                    </motion.button>
+                  </div>
+
+                  {/* Voice Controls */}
+                  <div className="flex items-center space-x-4">
+                    <motion.button
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      onClick={playCurrentCardVoice}
+                      disabled={isLoadingVoice || isVoicePlaying}
+                      className={`px-4 py-2 rounded-lg font-semibold flex items-center space-x-2 ${
+                        isLoadingVoice || isVoicePlaying
+                          ? 'bg-gray-300 text-gray-500 cursor-not-allowed'
+                          : 'bg-green-600 text-white hover:bg-green-700'
+                      }`}
+                    >
+                      {isVoicePlaying ? (
+                        <VolumeX className="w-4 h-4" />
+                      ) : (
+                        <Volume2 className="w-4 h-4" />
+                      )}
+                      <span>
+                        {isLoadingVoice ? 'Đang tải...' : isVoicePlaying ? 'Đang phát' : 'Phát âm thanh'}
+                      </span>
+                    </motion.button>
+                  </div>
+                </div>
+
+                {/* Card Progress */}
+                <div className="mt-6">
+                  <div className="flex justify-between items-center mb-2">
+                    <span className="text-sm font-medium text-gray-600">
+                      Thẻ {currentCardIndex + 1} / {timeTravelState.timeline.length}
+                    </span>
+                    <span className="text-sm font-medium text-gray-600">
+                      {Math.round(((currentCardIndex + 1) / timeTravelState.timeline.length) * 100)}%
+                    </span>
+                  </div>
+                  <div className="w-full bg-gray-200 rounded-full h-3">
+                    <motion.div
+                      className="bg-gradient-to-r from-red-500 to-yellow-500 h-3 rounded-full"
+                      initial={{ width: 0 }}
+                      animate={{ width: `${((currentCardIndex + 1) / timeTravelState.timeline.length) * 100}%` }}
+                      transition={{ duration: 0.5 }}
+                    />
+                  </div>
                 </div>
               </div>
-            </div>
-          </motion.div>
+            </motion.div>
+          )}
         </div>
 
         {/* Timeline Sidebar */}

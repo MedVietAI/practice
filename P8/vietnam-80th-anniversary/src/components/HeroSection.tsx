@@ -3,7 +3,12 @@
 import { motion } from 'framer-motion'
 import { Flag, Star, Users, Trophy } from 'lucide-react'
 
-export default function HeroSection() {
+interface HeroSectionProps {
+  onStartGame?: () => void
+  onLearnHistory?: () => void
+}
+
+export default function HeroSection({ onStartGame, onLearnHistory }: HeroSectionProps) {
   return (
     <div className="relative text-center py-16 overflow-hidden">
       {/* Patriotic Background */}
@@ -88,7 +93,8 @@ export default function HeroSection() {
           <motion.button
             whileHover={{ scale: 1.05, y: -2 }}
             whileTap={{ scale: 0.95 }}
-            className="btn-primary text-xl px-12 py-6"
+            onClick={onStartGame}
+            className="btn-primary text-xl px-12 py-6 cursor-pointer"
           >
             🎮 Bắt Đầu Chơi Ngay
           </motion.button>
@@ -96,7 +102,8 @@ export default function HeroSection() {
           <motion.button
             whileHover={{ scale: 1.05, y: -2 }}
             whileTap={{ scale: 0.95 }}
-            className="btn-secondary text-xl px-12 py-6"
+            onClick={onLearnHistory}
+            className="btn-secondary text-xl px-12 py-6 cursor-pointer"
           >
             📚 Tìm Hiểu Lịch Sử
           </motion.button>
