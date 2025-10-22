@@ -6,9 +6,13 @@ import { Play, BookOpen, Trophy, Users, Star, Flag } from 'lucide-react'
 import GameModeSelector from '@/components/GameModeSelector'
 import HeroSection from '@/components/HeroSection'
 import GameLauncher from '@/components/GameLauncher'
+import PremiumGameLauncher from '@/components/PremiumGameLauncher'
 import HistorySection from '@/components/HistorySection'
+import PremiumHistorySection from '@/components/PremiumHistorySection'
 import NewsImageGallery from '@/components/NewsImageGallery'
+import PremiumImageGallery from '@/components/PremiumImageGallery'
 import CelebrationSection from '@/components/CelebrationSection'
+import PremiumDashboard from '@/components/PremiumDashboard'
 import ResponsiveLayout from '@/components/ResponsiveLayout'
 
 export default function Home() {
@@ -22,12 +26,11 @@ export default function Home() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <HeroSection 
+            <PremiumDashboard 
               onStartGame={() => setCurrentView('game')}
               onLearnHistory={() => setCurrentView('history')}
+              onViewGallery={() => setCurrentView('gallery')}
             />
-            <CelebrationSection />
-            <GameModeSelector onStartGame={() => setCurrentView('game')} />
           </motion.div>
         )}
         
@@ -37,7 +40,7 @@ export default function Home() {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5 }}
           >
-            <GameLauncher onBack={() => setCurrentView('home')} />
+            <PremiumGameLauncher onBack={() => setCurrentView('home')} />
           </motion.div>
         )}
         
@@ -47,7 +50,7 @@ export default function Home() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <HistorySection />
+            <PremiumHistorySection />
           </motion.div>
         )}
         
@@ -57,7 +60,7 @@ export default function Home() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <NewsImageGallery 
+            <PremiumImageGallery 
               title="Hình Ảnh Kỷ Niệm 80 Năm Quốc Khánh"
               showFilters={true}
             />

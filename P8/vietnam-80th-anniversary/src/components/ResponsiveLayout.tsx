@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import EnhancedHeader from './EnhancedHeader'
+import PremiumHeader from './PremiumHeader'
 
 interface ResponsiveLayoutProps {
   currentView: 'home' | 'game' | 'history' | 'gallery' | 'about'
@@ -12,7 +12,7 @@ interface ResponsiveLayoutProps {
 export default function ResponsiveLayout({ currentView, setCurrentView, children }: ResponsiveLayoutProps) {
   return (
     <div className="min-h-screen bg-gradient-to-br from-red-50 via-yellow-50 to-red-100">
-      <EnhancedHeader currentView={currentView} setCurrentView={setCurrentView} />
+            <PremiumHeader currentView={currentView} setCurrentView={setCurrentView} />
       
       <main className="container mx-auto px-4 py-8">
         {children}

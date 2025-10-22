@@ -114,7 +114,7 @@ export default function EnhancedQAGame({ topic, onComplete }: QAGameProps) {
 
   const getHint = async () => {
     try {
-      const hintText = await AIClient.generateGameContent('hint', currentQuestion)
+      const hintText = await AIClient.generateGameContent('fact', currentQuestion)
       setHint(hintText || 'Hãy suy nghĩ về ý nghĩa lịch sử và tầm quan trọng của sự kiện này đối với dân tộc Việt Nam.')
       setShowHint(true)
     } catch (error) {
@@ -129,7 +129,7 @@ export default function EnhancedQAGame({ topic, onComplete }: QAGameProps) {
     
     setIsLoading(true)
     try {
-      const evaluation = await AIClient.generateGameContent('evaluation', `${currentQuestion}\n\nCâu trả lời: ${userAnswer}`)
+      const evaluation = await AIClient.generateGameContent('story', `${currentQuestion}\n\nCâu trả lời: ${userAnswer}`)
       setFeedback(evaluation || 'Câu trả lời của bạn rất tốt! Hãy tiếp tục phát huy tinh thần yêu nước và hiểu biết lịch sử.')
       
       // Simple scoring (in a real app, you'd use more sophisticated evaluation)
