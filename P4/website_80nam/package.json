@@ -1,0 +1,31 @@
+{
+  "name": "website-80nam",
+  "version": "1.0.0",
+  "description": "Website kỷ niệm 80 năm Quốc khánh nước Cộng hòa Xã hội Chủ nghĩa Việt Nam (2/9/1945 - 2/9/2025)",
+  "private": true,
+  "scripts": {
+    "start": "python3 -m http.server 5173",
+    "dev": "python3 -m http.server 5173",
+    "build": "echo 'Static website - no build required'",
+    "vercel-build": "echo 'Static website - no build required'",
+    "deploy": "vercel --prod --yes",
+    "preview": "vercel"
+  },
+  "keywords": [
+    "vietnam",
+    "80-years-anniversary",
+    "national-day",
+    "independence",
+    "static-website"
+  ],
+  "author": "Website Kỷ niệm 80 năm Quốc khánh",
+  "license": "MIT",
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-username/website-80nam.git"
+  },
+  "homepage": "https://website-80nam.vercel.app"
+}

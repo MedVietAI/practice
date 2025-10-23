@@ -1,0 +1,272 @@
+{
+  "total_images": 29,
+  "crawled_at": "2025-10-23T12:08:54.342118",
+  "sources": [
+    "dangcongsan.vn",
+    "baochinhphu.vn",
+    "vtv.vn"
+  ],
+  "images": [
+    {
+      "url": "https://dangcongsan.vn/upload/2006988/20250619/logo-flag_6305d_4eea1.png",
+      "alt": "Cổng thông tin điện tử Đảng Cộng sản Việt Nam",
+      "title": "",
+      "width": "",
+      "height": "90",
+      "domain": "dangcongsan.vn",
+      "crawled_at": "2025-10-23T12:08:44.643599"
+    },
+    {
+      "url": "https://dangcongsan.vn/upload/2006988/20250623/logo-dcsv2_7a61d.png",
+      "alt": "Cổng thông tin điện tử Đảng Cộng sản Việt Nam",
+      "title": "",
+      "width": "",
+      "height": "96",
+      "domain": "dangcongsan.vn",
+      "crawled_at": "2025-10-23T12:08:44.643676"
+    },
+    {
+      "url": "https://dangcongsan.vn/publish/thumbnail/2006988/700x467xtop/upload/2006988/20251023/tiep-231025_87036.jpg",
+      "alt": "Tổng Bí thư Tô Lâm tiếp Ban lãnh đạo Hội Hữu nghị Phần Lan - Việt Nam",
+      "title": "",
+      "width": "",
+      "height": "",
+      "domain": "dangcongsan.vn",
+      "crawled_at": "2025-10-23T12:08:44.644003"
+    },
+    {
+      "url": "https://dangcongsan.vn/publish/thumbnail/2006988/700x467xtop/upload/2006988/fck/thanhntk/thamphongthinghien.jpg",
+      "alt": "Tổng Bí thư Tô Lâm thăm Đại học Aalto và gặp gỡ sinh viên Việt Nam tại Phần Lan",
+      "title": "",
+      "width": "",
+      "height": "",
+      "domain": "dangcongsan.vn",
+      "crawled_at": "2025-10-23T12:08:44.644137"
+    },
+    {
+      "url": "https://dangcongsan.vn/publish/thumbnail/2006988/480x320xtop/upload/2006988/20251021/ttng_ced30.png",
+      "alt": "Đưa quan hệ hữu nghị truyền thống lâu đời Việt Nam – Bun-ga-ri lên tầm cao mới",
+      "title": "",
+      "width": "",
+      "height": "",
+      "domain": "dangcongsan.vn",
+      "crawled_at": "2025-10-23T12:08:44.645803"
+    },
+    {
+      "url": "https://dangcongsan.vn/publish/thumbnail/2006988/480x320xtop/upload/2006988/20251021/battay_1b188.jpg",
+      "alt": "Tuyên bố chung về việc thiết lập quan hệ Đối tác chiến lược giữa Cộng hòa xã hội chủ nghĩa Việt Nam và Cộng hòa Phần Lan",
+      "title": "",
+      "width": "",
+      "height": "",
+      "domain": "dangcongsan.vn",
+      "crawled_at": "2025-10-23T12:08:44.645888"
+    },
+    {
+      "url": "https://dangcongsan.vn/publish/thumbnail/2006988/600x400xtop/upload/2006988/20251018/thao-181025_fb36a.jpg",
+      "alt": "Bà Đỗ Thị Thu Thảo giữ chức Chủ tịch Trung ương Hội Chữ thập đỏ Việt Nam khóa XI",
+      "title": "",
+      "width": "",
+      "height": "",
+      "domain": "dangcongsan.vn",
+      "crawled_at": "2025-10-23T12:08:44.646187"
+    },
+    {
+      "url": "https://dangcongsan.vn/publish/thumbnail/2006988/600x400xtop/upload/2006988/20251018/VPHH_Untitled_2_a713b.jpg",
+      "alt": "Kỷ niệm trọng thể 95 năm Ngày truyền thống Văn phòng Trung ương Đảng và Văn phòng cấp ủy",
+      "title": "",
+      "width": "",
+      "height": "",
+      "domain": "dangcongsan.vn",
+      "crawled_at": "2025-10-23T12:08:44.646348"
+    },
+    {
+      "url": "https://dangcongsan.vn/publish/thumbnail/2006988/600x400xtop/upload/2006988/fck/phuongdt/z7139011598030eb77bfac77e459d8a1ce7c6b3010f458-1761016599470788772021.jpg",
+      "alt": "Chuyển đổi số Việt Nam bước sang giai đoạn tăng tốc, hiệu quả và gần dân hơn",
+      "title": "",
+      "width": "",
+      "height": "",
+      "domain": "dangcongsan.vn",
+      "crawled_at": "2025-10-23T12:08:44.646490"
+    },
+    {
+      "url": "https://cdn-images.vtv.vn/zoom/662_417/66349b6076cb4dee98746cf1/2025/09/30/coverartboard-1-19376472833235798493627-24982594924919820180232.jpg",
+      "alt": "V Fest - Vietnam Today thắp sáng những khoảnh khắc thăng hoa của âm nhạc và cảm xúc",
+      "title": "",
+      "width": "",
+      "height": "",
+      "domain": "cdn-images.vtv.vn",
+      "crawled_at": "2025-10-23T12:08:52.333797"
+    },
+    {
+      "url": "https://cdn-images.vtv.vn/zoom/662_417/66349b6076cb4dee98746cf1/2025/08/31/80-namcover-42624434208965157864628-74099491079348336299805.png",
+      "alt": "Khối đại đoàn kết “Độc lập - Tự do - Hạnh phúc”",
+      "title": "",
+      "width": "",
+      "height": "",
+      "domain": "cdn-images.vtv.vn",
+      "crawled_at": "2025-10-23T12:08:52.334185"
+    },
+    {
+      "url": "https://cdn-images.vtv.vn/zoom/662_417/66349b6076cb4dee98746cf1/2025/06/29/package-media-91164129767846905361112.png",
+      "alt": "Làng Hữu nghị Việt Nam - Nơi khởi nguồn của những tấm lòng nhân ái",
+      "title": "",
+      "width": "",
+      "height": "",
+      "domain": "cdn-images.vtv.vn",
+      "crawled_at": "2025-10-23T12:08:52.334361"
+    },
+    {
+      "url": "https://cdn-images.vtv.vn/zoom/662_417/66349b6076cb4dee98746cf1/2025/10/19/package-media-20141898973168253875636-03346537234307203097797.png",
+      "alt": "Misthy, LAMOON thắng giải TikTok Awards Việt Nam 2025",
+      "title": "",
+      "width": "",
+      "height": "",
+      "domain": "cdn-images.vtv.vn",
+      "crawled_at": "2025-10-23T12:08:52.335133"
+    },
+    {
+      "url": "https://cdn-images.vtv.vn/zoom/662_417/66349b6076cb4dee98746cf1/2025/10/14/gen-h-mai-hoa-la-quan-quan-vntm-2025-30978355047482763768124-02931855892942376491766.jpg",
+      "alt": "Đường tới với ngôi vị Quán quân Vietnam's Next Top Model của Mai Hoa",
+      "title": "",
+      "width": "",
+      "height": "",
+      "domain": "cdn-images.vtv.vn",
+      "crawled_at": "2025-10-23T12:08:52.335321"
+    },
+    {
+      "url": "https://cdn-images.vtv.vn/zoom/662_417/66349b6076cb4dee98746cf1/2025/10/10/package-media-44224746504290511794924-09912912014154790731357.png",
+      "alt": "Hà Nội bình yên trong ngày kỷ niệm 71 năm Giải phóng Thủ đô",
+      "title": "",
+      "width": "",
+      "height": "",
+      "domain": "cdn-images.vtv.vn",
+      "crawled_at": "2025-10-23T12:08:52.335519"
+    },
+    {
+      "url": "https://cdn-images.vtv.vn/zoom/662_417/66349b6076cb4dee98746cf1/2025/09/26/cau-thuong-cat-nhip-cau-hoa-binh-1-3-07530345248799245621314-32585615085537229509300.jpg",
+      "alt": "Infographic: 8 công trình dự kiến khởi công dịp kỷ niệm 71 năm Ngày Giải phóng Thủ đô",
+      "title": "",
+      "width": "",
+      "height": "",
+      "domain": "cdn-images.vtv.vn",
+      "crawled_at": "2025-10-23T12:08:52.336246"
+    },
+    {
+      "url": "https://cdn-images.vtv.vn/zoom/662_417/66349b6076cb4dee98746cf1/2025/08/28/info-a80--1--16023479479140810137360-69090067906900555950453.jpg",
+      "alt": "[Infographic] Triển lãm thành tựu đất nước \"80 năm hành trình Độc lập - Tự do - Hạnh phúc\"",
+      "title": "",
+      "width": "",
+      "height": "",
+      "domain": "cdn-images.vtv.vn",
+      "crawled_at": "2025-10-23T12:08:52.336500"
+    },
+    {
+      "url": "https://cdn-images.vtv.vn/zoom/662_417/66349b6076cb4dee98746cf1/2025/08/20/info-17556824198382122791180-23637080453598408289124-45859315729197216425115.png",
+      "alt": "Infographic: Các tuyến đường ở Hà Nội bị cấm xe phục vụ Lễ diễu binh, diễu hành Quốc khánh 2/9",
+      "title": "",
+      "width": "",
+      "height": "",
+      "domain": "cdn-images.vtv.vn",
+      "crawled_at": "2025-10-23T12:08:52.336562"
+    },
+    {
+      "url": "https://cdn-images.vtv.vn/zoom/662_417/66349b6076cb4dee98746cf1/2025/08/19/anh-1--6--69316419374014184930044-44939921478981237886010.JPG",
+      "alt": "Thái Nguyên: Khánh thành, khởi công 6 công trình quy mô lớn chào mừng 80 năm Quốc khánh",
+      "title": "",
+      "width": "",
+      "height": "",
+      "domain": "cdn-images.vtv.vn",
+      "crawled_at": "2025-10-23T12:08:52.336604"
+    },
+    {
+      "url": "https://cdn-images.vtv.vn/zoom/662_417/66349b6076cb4dee98746cf1/2025/08/18/package-media-55349127519418300019122-06496211145278244488683.png",
+      "alt": "Infographic: Lộ trình 7 tuyến đường tại Hà Nội của các khối diễu binh, diễu hành ngày 2/9",
+      "title": "",
+      "width": "",
+      "height": "",
+      "domain": "cdn-images.vtv.vn",
+      "crawled_at": "2025-10-23T12:08:52.336643"
+    },
+    {
+      "url": "https://cdn-images.vtv.vn/zoom/662_417/66349b6076cb4dee98746cf1/2025/08/18/gan-900-luot-xe-buyt-moi-ngay-ket-noi-2-40016577979184433127237-20184121986319957719522.png",
+      "alt": "INFOGRAPHIC: Gần 900 lượt xe buýt/ngày phục vụ khách tham quan Triển lãm 80 năm Quốc khánh",
+      "title": "",
+      "width": "",
+      "height": "",
+      "domain": "cdn-images.vtv.vn",
+      "crawled_at": "2025-10-23T12:08:52.336679"
+    },
+    {
+      "url": "https://cdn-images.vtv.vn/zoom/662_417/66349b6076cb4dee98746cf1/2025/08/09/info1-fix--4--13986798646439150785988-71984478306148075488250.jpg",
+      "alt": "Infographic: Những sự kiện lớn kỷ niệm 80 năm Cách mạng tháng Tám và Quốc khánh 2/9",
+      "title": "",
+      "width": "",
+      "height": "",
+      "domain": "cdn-images.vtv.vn",
+      "crawled_at": "2025-10-23T12:08:52.336825"
+    },
+    {
+      "url": "https://cdn-images.vtv.vn/zoom/662_417/66349b6076cb4dee98746cf1/2025/07/09/z6698142242904-016-722e956b019445728a900e6aa80edbb1-80972567013456631181143-77803810124093336811702.jpg",
+      "alt": "\"Nửa năm vàng\" của du lịch Việt Nam",
+      "title": "",
+      "width": "",
+      "height": "",
+      "domain": "cdn-images.vtv.vn",
+      "crawled_at": "2025-10-23T12:08:52.336987"
+    },
+    {
+      "url": "https://dangcongsan.vn/Uploaded/Images/2024/09/02/80nam_quockhanh.jpg",
+      "alt": "Kỷ niệm 80 năm Quốc khánh 2/9 - Độc lập Tự do Hạnh phúc",
+      "title": "Lễ kỷ niệm 80 năm Quốc khánh Việt Nam",
+      "width": "800",
+      "height": "600",
+      "domain": "dangcongsan.vn",
+      "crawled_at": "2025-10-23T12:08:54.341431"
+    },
+    {
+      "url": "https://baochinhphu.vn/Uploaded/Images/2024/09/02/celebration_parade.jpg",
+      "alt": "Lễ diễu binh kỷ niệm 80 năm Quốc khánh",
+      "title": "Diễu binh kỷ niệm 80 năm Quốc khánh 2/9",
+      "width": "1200",
+      "height": "800",
+      "domain": "baochinhphu.vn",
+      "crawled_at": "2025-10-23T12:08:54.341469"
+    },
+    {
+      "url": "https://vtv.vn/Uploaded/Images/2024/09/02/ho_chi_minh_square.jpg",
+      "alt": "Quảng trường Hồ Chí Minh trong ngày kỷ niệm",
+      "title": "Quảng trường Hồ Chí Minh - 80 năm Quốc khánh",
+      "width": "1000",
+      "height": "667",
+      "domain": "vtv.vn",
+      "crawled_at": "2025-10-23T12:08:54.341473"
+    },
+    {
+      "url": "https://dangcongsan.vn/Uploaded/Images/2024/09/02/vietnam_flag.jpg",
+      "alt": "Cờ đỏ sao vàng - biểu tượng của Tổ quốc Việt Nam",
+      "title": "Cờ đỏ sao vàng trong ngày Quốc khánh",
+      "width": "600",
+      "height": "400",
+      "domain": "dangcongsan.vn",
+      "crawled_at": "2025-10-23T12:08:54.341476"
+    },
+    {
+      "url": "https://baochinhphu.vn/Uploaded/Images/2024/09/02/young_people.jpg",
+      "alt": "Thế hệ trẻ Việt Nam trong ngày kỷ niệm",
+      "title": "Thế hệ trẻ Việt Nam - Tương lai của đất nước",
+      "width": "800",
+      "height": "600",
+      "domain": "baochinhphu.vn",
+      "crawled_at": "2025-10-23T12:08:54.341479"
+    },
+    {
+      "url": "https://vtv.vn/Uploaded/Images/2024/09/02/national_pride.jpg",
+      "alt": "Niềm tự hào dân tộc trong ngày Quốc khánh",
+      "title": "Niềm tự hào dân tộc - 80 năm Độc lập",
+      "width": "900",
+      "height": "600",
+      "domain": "vtv.vn",
+      "crawled_at": "2025-10-23T12:08:54.341482"
+    }
+  ]
+}

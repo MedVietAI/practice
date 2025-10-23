@@ -1,0 +1,9 @@
+{
+  "file_path": "public/voice/intro.mp3",
+  "script": "Kỷ niệm 80 năm Quốc khánh nước Cộng hòa Xã hội Chủ nghĩa Việt Nam.\n        \n        Hành trình 80 năm của dân tộc Việt Nam từ ngày Bác Hồ đọc Tuyên ngôn Độc lập tại Quảng trường Ba Đình lịch sử. Một chặng đường vinh quang của đại đoàn kết toàn dân tộc, của khát vọng phát triển và hướng tới tương lai tươi sáng.\n        \n        Đây là hành trình vinh quang của dân tộc Việt Nam, từ ngày độc lập đầu tiên đến những thành tựu to lớn trong công cuộc xây dựng và bảo vệ Tổ quốc.\n        \n        Chúng ta cùng nhau ôn lại truyền thống hào hùng, tri ân các thế hệ đi trước và khẳng định quyết tâm xây dựng đất nước ngày càng giàu mạnh, văn minh.\n        \n        Khát vọng Việt Nam: Độc lập - Tự do - Hạnh phúc!",
+  "duration_estimate": "90 seconds",
+  "voice_type": "Vietnamese Female",
+  "quality": "44.1kHz, 128kbps MP3",
+  "created_at": "2025-10-23T12:14:02.840138",
+  "note": "This is a placeholder. Use TTS_INSTRUCTIONS.md to generate actual audio file."
+}

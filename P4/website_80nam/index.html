@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Website kỷ niệm 80 năm Quốc khánh nước Cộng hòa Xã hội Chủ nghĩa Việt Nam (2/9/1945 - 2/9/2025)">
+    <meta name="keywords" content="80 năm Quốc khánh, 2/9/2025, Việt Nam, Độc lập, Tự do, Hạnh phúc">
+    <meta name="author" content="Website Kỷ niệm 80 năm Quốc khánh">
+    <title>Kỷ niệm 80 năm Quốc khánh 2/9/2025 - Độc lập Tự do Hạnh phúc</title>
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="data/content.json" as="fetch" crossorigin>
+    <link rel="preload" href="public/assets/images.json" as="fetch" crossorigin>
+    <link rel="preload" href="src/styles.css" as="style">
+    <link rel="preload" href="src/app.js" as="script">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='60' fill='%23da251d'/><polygon points='50,20 60,40 80,40 65,55 70,75 50,60 30,75 35,55 20,40 40,40' fill='%23ffcd00'/></svg>">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="src/styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header" role="banner">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <h1>80 năm Quốc khánh</h1>
+                    <p class="logo-subtitle">Hành trình vinh quang của dân tộc</p>
+                </div>
+                <nav class="nav" role="navigation" aria-label="Main navigation">
+                    <ul class="nav-list">
+                        <li><a href="#hero" class="nav-link">Trang chủ</a></li>
+                        <li><a href="#tong-quan" class="nav-link">Tổng quan</a></li>
+                        <li><a href="#hoat-dong" class="nav-link">Hoạt động</a></li>
+                        <li><a href="#gallery" class="nav-link">Thư viện ảnh</a></li>
+                        <li><a href="#about" class="nav-link">Về chúng tôi</a></li>
+                    </ul>
+                </nav>
+                <div class="header-controls">
+                    <button id="search-toggle" class="btn btn-secondary" aria-label="Tìm kiếm">
+                        🔍
+                    </button>
+                    <button id="theme-toggle" class="btn btn-secondary" aria-label="Chuyển đổi giao diện">
+                        🌙
+                    </button>
+                    <button id="mobile-menu-toggle" class="btn btn-secondary mobile-only" aria-label="Menu">
+                        ☰
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Search Overlay -->
+    <div id="search-overlay" class="search-overlay" role="dialog" aria-label="Tìm kiếm" aria-hidden="true">
+        <div class="search-content">
+            <div class="search-header">
+                <input type="text" id="search-input" placeholder="Tìm kiếm nội dung..." aria-label="Nhập từ khóa tìm kiếm">
+                <button id="search-close" class="btn btn-secondary" aria-label="Đóng tìm kiếm">✕</button>
+            </div>
+            <div id="search-results" class="search-results"></div>
+        </div>
+    </div>
+
+    <!-- Mobile Navigation -->
+    <nav id="mobile-nav" class="mobile-nav" aria-hidden="true">
+        <ul class="mobile-nav-list">
+            <li><a href="#hero" class="mobile-nav-link">Trang chủ</a></li>
+            <li><a href="#tong-quan" class="mobile-nav-link">Tổng quan</a></li>
+            <li><a href="#hoat-dong" class="mobile-nav-link">Hoạt động</a></li>
+            <li><a href="#gallery" class="mobile-nav-link">Thư viện ảnh</a></li>
+            <li><a href="#about" class="mobile-nav-link">Về chúng tôi</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main" role="main">
+        <!-- Hero Section -->
+        <section id="hero" class="hero" role="banner">
+            <div class="container">
+                <div class="hero-content">
+                    <h1 id="hero-title" class="hero-title">Kỷ niệm 80 năm Quốc khánh 2/9/2025</h1>
+                    <h2 id="hero-subtitle" class="hero-subtitle">Độc lập - Tự do - Hạnh phúc</h2>
+                    <p id="hero-lede" class="hero-lede">
+                        Hành trình 80 năm của dân tộc Việt Nam từ ngày Bác Hồ đọc Tuyên ngôn Độc lập tại Quảng trường Ba Đình lịch sử...
+                    </p>
+                    <div class="hero-audio">
+                        <audio id="intro-audio" controls preload="metadata" aria-label="Phát âm thanh giới thiệu">
+                            <source src="public/voice/intro.mp3" type="audio/mpeg">
+                            Trình duyệt của bạn không hỗ trợ phát âm thanh.
+                        </audio>
+                    </div>
+                    <div class="hero-actions">
+                        <a href="#tong-quan" class="btn btn-primary patriotic-btn">
+                            <span>🇻🇳</span> Khám phá hành trình vinh quang
+                        </a>
+                        <a href="#gallery" class="btn btn-secondary patriotic-btn">
+                            <span>📸</span> Thư viện ảnh lịch sử
+                        </a>
+                        <a href="#tri-an" class="btn btn-secondary patriotic-btn">
+                            <span>🕯️</span> Tri ân các anh hùng
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Content Sections -->
+        <section id="content-sections" class="content-sections">
+            <div class="container">
+                <!-- Content will be dynamically loaded here -->
+            </div>
+        </section>
+
+        <!-- Image Gallery -->
+        <section id="gallery" class="gallery" role="region" aria-label="Thư viện ảnh">
+            <div class="container">
+                <div class="gallery-header">
+                    <h2 class="gallery-title">Thư viện ảnh</h2>
+                    <div class="gallery-controls">
+                        <div class="filter-group">
+                            <label for="domain-filter">Nguồn:</label>
+                            <select id="domain-filter" aria-label="Lọc theo nguồn">
+                                <option value="">Tất cả</option>
+                                <option value="dangcongsan.vn">Đảng Cộng sản</option>
+                                <option value="baochinhphu.vn">Báo Chính phủ</option>
+                                <option value="vtv.vn">VTV</option>
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <label for="category-filter">Danh mục:</label>
+                            <select id="category-filter" aria-label="Lọc theo danh mục">
+                                <option value="">Tất cả</option>
+                                <option value="celebration">Lễ kỷ niệm</option>
+                                <option value="parade">Diễu binh</option>
+                                <option value="flag">Cờ đỏ sao vàng</option>
+                                <option value="people">Con người</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div id="gallery-grid" class="gallery-grid" role="grid" aria-label="Lưới ảnh">
+                    <!-- Images will be dynamically loaded here -->
+                </div>
+                <div class="gallery-pagination">
+                    <button id="load-more" class="btn btn-primary">Tải thêm ảnh</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="about" role="region" aria-label="Về chúng tôi">
+            <div class="container">
+                <h2 class="about-title">Về website này</h2>
+                <div class="about-content">
+                    <p id="footer-note" class="about-text">
+                        Website được xây dựng nhân kỷ niệm 80 năm Quốc khánh nước Cộng hòa Xã hội Chủ nghĩa Việt Nam (2/9/1945 - 2/9/2025)...
+                    </p>
+                    <div class="about-sources">
+                        <h3>Nguồn thông tin</h3>
+                        <ul>
+                            <li><a href="https://dangcongsan.vn" target="_blank" rel="noopener">Đảng Cộng sản Việt Nam</a></li>
+                            <li><a href="https://baochinhphu.vn" target="_blank" rel="noopener">Báo Chính phủ</a></li>
+                            <li><a href="https://vtv.vn" target="_blank" rel="noopener">Đài Truyền hình Việt Nam</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer" role="contentinfo">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <p id="slogan" class="footer-slogan">Độc lập - Tự do - Hạnh phúc: Khát vọng Việt Nam vươn tới tương lai</p>
+                    <p class="footer-copyright">© 2025 Website Kỷ niệm 80 năm Quốc khánh Việt Nam</p>
+                </div>
+                <div class="footer-links">
+                    <a href="#hero" class="footer-link">Trang chủ</a>
+                    <a href="#tong-quan" class="footer-link">Tổng quan</a>
+                    <a href="#gallery" class="footer-link">Thư viện ảnh</a>
+                    <a href="#about" class="footer-link">Về chúng tôi</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Loading Indicator -->
+    <div id="loading" class="loading" aria-hidden="true">
+        <div class="loading-spinner"></div>
+        <p>Đang tải nội dung...</p>
+    </div>
+
+    <!-- Scripts -->
+    <script src="src/app.js"></script>
+</body>
+</html>

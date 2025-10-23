@@ -1,0 +1,85 @@
+{
+  "hero": {
+    "title": "Kỷ niệm 80 năm Quốc khánh 2/9/2025",
+    "subtitle": "Độc lập - Tự do - Hạnh phúc",
+    "lede": "Từ những giây phút thiêng liêng khi Chủ tịch Hồ Chí Minh đọc Tuyên ngôn Độc lập tại Quảng trường Ba Đình lịch sử ngày 2/9/1945, đến hôm nay - 80 năm sau, dân tộc Việt Nam đã viết nên những trang sử hào hùng nhất. Đây là hành trình của lòng yêu nước, của ý chí kiên cường, của khát vọng độc lập và tự do. Mỗi bước đi đều in dấu sự hy sinh cao cả của các thế hệ cha anh, mỗi thành tựu đều thể hiện sức mạnh đại đoàn kết toàn dân tộc. Hôm nay, chúng ta cùng nhau ôn lại truyền thống vẻ vang, tri ân những người đã ngã xuống vì Tổ quốc, và khẳng định quyết tâm xây dựng đất nước Việt Nam ngày càng giàu mạnh, văn minh, hạnh phúc."
+  },
+  "sections": [
+    {
+      "id": "tong_quan",
+      "heading": "Tổng quan về hoạt động kỷ niệm",
+      "paragraphs": [
+        "Năm 2025 - một cột mốc thiêng liêng trong lịch sử dân tộc Việt Nam! 80 năm trôi qua kể từ ngày Bác Hồ đọc Tuyên ngôn Độc lập, đất nước ta đã vượt qua muôn vàn thử thách, từ cuộc kháng chiến trường kỳ chống thực dân Pháp, đến cuộc kháng chiến chống Mỹ cứu nước, rồi công cuộc đổi mới và hội nhập quốc tế. Mỗi giai đoạn đều ghi dấu sự hy sinh cao cả của hàng triệu người con ưu tú của Tổ quốc.",
+        "Hôm nay, trong không khí trang nghiêm và tự hào, toàn dân tộc Việt Nam cùng nhau tổ chức các hoạt động kỷ niệm với tinh thần 'Đại đoàn kết toàn dân tộc'. Đây không chỉ là dịp để ôn lại truyền thống hào hùng, mà còn là cơ hội để mỗi người dân Việt Nam thể hiện lòng yêu nước, tình yêu quê hương, và quyết tâm xây dựng đất nước ngày càng giàu mạnh, văn minh, hạnh phúc."
+      ]
+    },
+    {
+      "id": "nghe_thuat",
+      "heading": "Hoạt động nghệ thuật và văn hóa",
+      "bullets": [
+        "🎭 Chương trình nghệ thuật 'Khát vọng Việt Nam' - Tôn vinh tinh thần yêu nước qua các tác phẩm nghệ thuật đỉnh cao",
+        "🏛️ Triển lãm '80 năm - Hành trình vinh quang' - Kể câu chuyện lịch sử hào hùng của dân tộc",
+        "🎬 Liên hoan phim 'Việt Nam - Đất nước con người' - Những bộ phim lay động lòng người về tình yêu Tổ quốc",
+        "🎵 Chương trình ca nhạc 'Giai điệu Tổ quốc' - Những ca khúc bất hủ về quê hương, đất nước",
+        "📸 Triển lãm ảnh 'Việt Nam qua các thời kỳ' - Hành trình 80 năm qua ống kính nghệ thuật"
+      ]
+    },
+    {
+      "id": "trien_lam",
+      "heading": "Triển lãm và trưng bày",
+      "bullets": [
+        "🏛️ Triển lãm '80 năm Độc lập - Tự do - Hạnh phúc' - Tôn vinh Chủ tịch Hồ Chí Minh và những đóng góp vĩ đại của Người",
+        "📈 Trưng bày 'Thành tựu phát triển kinh tế - xã hội' - Những bước tiến vượt bậc của đất nước sau 80 năm",
+        "💻 Triển lãm 'Việt Nam trong thời đại số' - Hành trình chuyển đổi số và hội nhập quốc tế",
+        "🎨 Trưng bày 'Di sản văn hóa dân tộc' - Bảo tồn và phát huy giá trị văn hóa truyền thống",
+        "🔬 Triển lãm 'Thành tựu khoa học - công nghệ' - Những đột phá trong nghiên cứu và ứng dụng"
+      ]
+    },
+    {
+      "id": "tri_an",
+      "heading": "Hoạt động tri ân và tưởng niệm",
+      "bullets": [
+        "🕯️ Lễ dâng hương tại Lăng Chủ tịch Hồ Chí Minh - Thể hiện lòng biết ơn sâu sắc đối với vị Cha già dân tộc",
+        "👴 Chương trình 'Tri ân các thế hệ cách mạng' - Vinh danh những người đã hy sinh vì độc lập, tự do của Tổ quốc",
+        "⚰️ Lễ tưởng niệm các anh hùng liệt sĩ tại Nghĩa trang Trường Sơn - Tưởng nhớ những người con ưu tú đã ngã xuống",
+        "📖 Chương trình 'Gặp gỡ các nhân chứng lịch sử' - Lắng nghe những câu chuyện cảm động từ những người đã sống qua thời kỳ lịch sử",
+        "🕯️ Hoạt động 'Thắp nến tri ân' - Hành động thiêng liêng thể hiện lòng biết ơn đối với các anh hùng dân tộc"
+      ]
+    },
+    {
+      "id": "an_sinh",
+      "heading": "Hoạt động an sinh xã hội",
+      "bullets": [
+        "Chương trình '80 năm - 80 nghĩa cử cao đẹp' hỗ trợ các gia đình có công với cách mạng",
+        "Hoạt động 'Thăm hỏi, tặng quà' các cựu chiến binh, thương binh, gia đình liệt sĩ",
+        "Chương trình 'Xây dựng nhà tình nghĩa' cho các gia đình chính sách",
+        "Hoạt động 'Khám bệnh miễn phí' cho người dân tại các vùng sâu, vùng xa",
+        "Chương trình 'Hỗ trợ học bổng' cho con em các gia đình có công với cách mạng"
+      ]
+    },
+    {
+      "id": "thi_dua",
+      "heading": "Phong trào thi đua yêu nước",
+      "bullets": [
+        "Phong trào 'Thi đua 80 năm - Vì Tổ quốc' trong các cơ quan, đơn vị",
+        "Chương trình 'Gương sáng Việt Nam' tôn vinh các cá nhân, tập thể tiêu biểu",
+        "Cuộc thi 'Tìm hiểu lịch sử 80 năm Quốc khánh' dành cho học sinh, sinh viên",
+        "Phong trào 'Lao động sáng tạo' trong các ngành, lĩnh vực",
+        "Chương trình 'Thi đua học tập và làm theo tư tưởng, đạo đức, phong cách Hồ Chí Minh'"
+      ]
+    },
+    {
+      "id": "dia_phuong",
+      "heading": "Hoạt động tại các địa phương",
+      "bullets": [
+        "Lễ kỷ niệm tại 63 tỉnh, thành phố với các hoạt động đặc trưng của từng địa phương",
+        "Chương trình 'Về nguồn' thăm các di tích lịch sử, cách mạng",
+        "Hoạt động 'Giao lưu văn hóa' giữa các địa phương trong cả nước",
+        "Chương trình 'Du lịch lịch sử' khám phá các địa danh cách mạng",
+        "Hoạt động 'Tình nguyện vì cộng đồng' tại các địa phương"
+      ]
+    }
+  ],
+  "slogan": "🇻🇳 Độc lập - Tự do - Hạnh phúc: Khát vọng Việt Nam vươn tới tương lai rạng ngời ⭐",
+  "footer_note": "Website được xây dựng với tình yêu Tổ quốc và lòng tự hào dân tộc nhân kỷ niệm 80 năm Quốc khánh nước Cộng hòa Xã hội Chủ nghĩa Việt Nam (2/9/1945 - 2/9/2025). Nội dung được tổng hợp từ các nguồn chính thống: Đảng Cộng sản Việt Nam, Báo Chính phủ, và Đài Truyền hình Việt Nam. Mỗi hình ảnh, mỗi câu chữ đều thể hiện tình yêu quê hương, đất nước và niềm tự hào về truyền thống hào hùng của dân tộc Việt Nam."
+}
