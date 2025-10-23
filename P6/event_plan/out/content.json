@@ -1,100 +1,89 @@
 {
-  "title": "Kế hoạch Kỷ niệm 80 năm Quốc khánh 2/9",
+  "title": "Kế hoạch Tổ chức Lễ Kỷ niệm 80 năm Ngày Quốc khánh nước Cộng hòa Xã hội Chủ nghĩa Việt Nam (2/9/1945 - 2/9/2025)",
   "objectives": [
-    "Tôn vinh truyền thống lịch sử vẻ vang của dân tộc Việt Nam",
-    "Giáo dục thế hệ trẻ về tinh thần yêu nước và cách mạng",
-    "Thúc đẩy tinh thần đoàn kết dân tộc và khát vọng phát triển",
-    "Khẳng định thành tựu của đất nước sau 80 năm độc lập"
+    "Tôn vinh giá trị lịch sử vĩ đại của Cách mạng Tháng Tám và Tuyên ngôn Độc lập 2/9/1945",
+    "Khẳng định thành tựu 80 năm xây dựng và bảo vệ Tổ quốc từ ngày độc lập đầu tiên",
+    "Giáo dục truyền thống yêu nước, lòng tự hào dân tộc và ý chí tự lực, tự cường cho các tầng lớp nhân dân",
+    "Củng cố và tăng cường sức mạnh khối đại đoàn kết toàn dân tộc trong thời đại mới",
+    "Quảng bá hình ảnh đất nước, con người Việt Nam hòa bình, hữu nghị, năng động và phát triển"
   ],
   "scope": [
-    "Phạm vi địa lý: Toàn quốc với trọng tâm tại Hà Nội",
-    "Đối tượng tham gia: Công dân Việt Nam và kiều bào",
-    "Thời gian: 90 ngày (T-60 đến T+30) xoay quanh ngày 2/9/2025",
-    "Nội dung: Lễ kỷ niệm, triển lãm, hội thảo, hoạt động văn hóa"
+    "Phạm vi địa lý: Toàn quốc, với các hoạt động trọng điểm tại Thủ đô Hà Nội - nơi Chủ tịch Hồ Chí Minh đọc Tuyên ngôn Độc lập",
+    "Đối tượng tham gia: Toàn thể nhân dân Việt Nam, kiều bào ta ở nước ngoài, và bạn bè quốc tế",
+    "Thời gian: 90 ngày, từ T-60 đến T+30 (so với ngày 2/9/2025) - kỷ niệm 80 năm ngày độc lập",
+    "Nội dung: Chuỗi hoạt động bao gồm Lễ míttinh, diễu binh, diễu hành cấp quốc gia và các hoạt động văn hóa lịch sử"
   ],
   "stakeholders": [
-    "Ban Chấp hành Trung ương Đảng Cộng sản Việt Nam",
-    "Chính phủ và các bộ, ngành liên quan",
-    "Ủy ban Trung ương Mặt trận Tổ quốc Việt Nam",
-    "Các tổ chức chính trị - xã hội",
-    "Chính quyền địa phương các cấp",
-    "Các cơ quan truyền thông báo chí",
-    "Nhân dân và kiều bào Việt Nam"
+    "Ban Chấp hành Trung ương Đảng, Quốc hội, Chủ tịch nước, Chính phủ",
+    "Các Bộ, ban, ngành Trung ương (Bộ Quốc phòng, Bộ Công an, Bộ Văn hóa)",
+    "Ủy ban Trung ương Mặt trận Tổ quốc Việt Nam và các tổ chức thành viên",
+    "Ủy ban nhân dân các tỉnh, thành phố trực thuộc Trung ương",
+    "Các cơ quan thông tấn, báo chí",
+    "Toàn thể nhân dân Việt Nam và cộng đồng người Việt Nam ở nước ngoài"
   ],
   "timeline": [
     {
-      "phase": "Giai đoạn Chuẩn bị",
+      "phase": "Giai đoạn 1: Khởi động và Chuẩn bị",
       "window": "T-60 đến T-30",
       "workstreams": [
-        "Thành lập Ban chỉ đạo cấp Trung ương",
-        "Xây dựng kế hoạch chi tiết và phân công nhiệm vụ",
-        "Phân bổ ngân sách và huy động nguồn lực",
-        "Tuyển chọn và chuẩn bị địa điểm tổ chức",
-        "Tập huấn lực lượng tham gia"
+        "Thành lập Ban Chỉ đạo, Ban Tổ chức và các Tiểu ban chuyên trách",
+        "Xây dựng và phê duyệt Kế hoạch tổng thể, kịch bản chi tiết",
+        "Dự toán, phân bổ và triển khai các thủ tục về ngân sách",
+        "Phát động các phong trào thi đua yêu nước chào mừng kỷ niệm"
       ]
     },
     {
-      "phase": "Giai đoạn Triển khai",
+      "phase": "Giai đoạn 2: Triển khai cao điểm",
       "window": "T-30 đến T-7",
       "workstreams": [
-        "Tổ chức các hoạt động tuyên truyền rộng rãi",
-        "Chuẩn bị hậu cần và trang thiết bị",
-        "Tập huấn và diễn tập các nghi lễ",
-        "Kiểm tra an ninh và an toàn",
-        "Phối hợp với các địa phương"
+        "Đẩy mạnh công tác tuyên truyền trên các phương tiện thông tin đại chúng",
+        "Tổ chức sơ duyệt, tổng duyệt các chương trình chính",
+        "Hoàn thiện công tác hậu cần, kỹ thuật, an ninh, y tế",
+        "Tổ chức các hoạt động bên lề tại các địa phương trên cả nước"
       ]
     },
     {
-      "phase": "Giai đoạn Thực hiện",
+      "phase": "Giai đoạn 3: Thực hiện sự kiện",
       "window": "T-7 đến T+1",
       "workstreams": [
-        "Tổ chức lễ kỷ niệm chính thức",
-        "Các hoạt động văn hóa nghệ thuật",
-        "Truyền hình trực tiếp toàn quốc",
-        "Đảm bảo an ninh trật tự tuyệt đối",
-        "Ghi nhận và tôn vinh các cá nhân, tập thể"
+        "Tổ chức Lễ Kỷ niệm chính thức, diễu binh, diễu hành cấp quốc gia",
+        "Tổ chức Chương trình nghệ thuật đặc biệt vào tối 2/9",
+        "Triển khai các phương án đảm bảo an ninh, an toàn tuyệt đối",
+        "Truyền hình, phát thanh trực tiếp các sự kiện chính"
       ]
     },
     {
-      "phase": "Giai đoạn Kết thúc",
+      "phase": "Giai đoạn 4: Tổng kết và lan tỏa",
       "window": "T+1 đến T+30",
       "workstreams": [
-        "Tổng kết và đánh giá kết quả",
-        "Báo cáo tổng hợp lên cấp trên",
-        "Lưu trữ tài liệu và hiện vật",
-        "Tri ân các đơn vị tham gia",
-        "Rút kinh nghiệm cho các sự kiện tương lai"
+        "Tổ chức họp tổng kết, đánh giá, rút kinh nghiệm",
+        "Thực hiện công tác thi đua, khen thưởng cho các tập thể, cá nhân xuất sắc",
+        "Hoàn tất thủ tục tài chính, quyết toán",
+        "Sản xuất các sản phẩm truyền thông hậu sự kiện"
       ]
     }
   ],
   "program": [
     {
-      "name": "Lễ kỷ niệm chính thức",
-      "goal": "Tôn vinh 80 năm Quốc khánh với nghi lễ trang trọng",
-      "owner": "Ban Tổ chức Trung ương",
-      "resources": "Sân vận động, hệ thống âm thanh, ánh sáng chuyên nghiệp",
-      "venue": "Quảng trường Ba Đình, Hà Nội"
+      "name": "Lễ Míttinh, Diễu binh, Diễu hành cấp Quốc gia",
+      "goal": "Biểu dương sức mạnh đại đoàn kết toàn dân tộc, khẳng định thành tựu 80 năm",
+      "owner": "Ban Tổ chức cấp Nhà nước",
+      "resources": "Lực lượng vũ trang, các khối đại diện nhân dân, phương tiện kỹ thuật quân sự",
+      "venue": "Quảng trường Ba Đình và các tuyến phố chính tại Hà Nội"
     },
     {
-      "name": "Triển lãm lịch sử",
-      "goal": "Giáo dục truyền thống cách mạng cho thế hệ trẻ",
-      "owner": "Bảo tàng Lịch sử Quốc gia",
-      "resources": "Hiện vật, tài liệu lịch sử, công nghệ trình chiếu hiện đại",
-      "venue": "Bảo tàng Lịch sử Quốc gia và các địa điểm khác"
+      "name": "Triển lãm '80 năm - Chặng đường vẻ vang'",
+      "goal": "Trưng bày các tư liệu, hình ảnh, hiện vật quý giá về Cách mạng tháng Tám",
+      "owner": "Bộ VHTTDL, Bảo tàng Lịch sử Quốc gia",
+      "resources": "Tư liệu, hiện vật, không gian trưng bày, công nghệ trình chiếu tương tác",
+      "venue": "Trung tâm Triển lãm Văn hóa Nghệ thuật Việt Nam"
     },
     {
-      "name": "Hội thảo khoa học",
-      "goal": "Nghiên cứu và khẳng định giá trị lịch sử của Cách mạng Tháng Tám",
-      "owner": "Viện Lịch sử Đảng",
-      "resources": "Chuyên gia, tài liệu nghiên cứu, hội trường",
-      "venue": "Hội trường lớn và các cơ sở nghiên cứu"
-    },
-    {
-      "name": "Chương trình văn hóa nghệ thuật",
-      "goal": "Tôn vinh tinh thần dân tộc qua các tác phẩm nghệ thuật",
-      "owner": "Bộ Văn hóa, Thể thao và Du lịch",
-      "resources": "Nghệ sĩ, diễn viên, trang thiết bị biểu diễn",
-      "venue": "Nhà hát lớn và các sân khấu"
+      "name": "Chương trình nghệ thuật đặc biệt 'Việt Nam - Khát vọng Rồng bay'",
+      "goal": "Tái hiện lịch sử hào hùng và thể hiện khát vọng phát triển của dân tộc",
+      "owner": "Bộ VHTTDL, Đài Truyền hình Việt Nam",
+      "resources": "Sân khấu quy mô lớn, đạo diễn, nghệ sĩ, công nghệ trình diễn hiện đại",
+      "venue": "Sân vận động Quốc gia Mỹ Đình, Hà Nội"
     }
   ],
   "communications": [
@@ -112,11 +101,6 @@
       "channel": "Mạng xã hội",
       "message": "Lan tỏa thông điệp yêu nước và tinh thần dân tộc",
       "key_dates": "T-60 đến T+30"
-    },
-    {
-      "channel": "Tuyên truyền cơ sở",
-      "message": "Tổ chức các buổi nói chuyện, triển lãm tại cơ sở",
-      "key_dates": "T-45 đến T+15"
     }
   ],
   "logistics": [
@@ -134,33 +118,23 @@
       "item": "Catering",
       "details": "Phục vụ ăn uống cho khách mời và lực lượng tham gia",
       "deadline": "T-7"
-    },
-    {
-      "item": "An ninh",
-      "details": "Bảo vệ an toàn tuyệt đối cho sự kiện",
-      "deadline": "T-3"
     }
   ],
   "budget": [
     {
       "category": "Tổ chức sự kiện",
-      "planned": "2.000.000.000 VNĐ",
+      "planned": "3.000.000.000 VNĐ",
       "notes": "Bao gồm thuê địa điểm, thiết bị, nhân lực"
     },
     {
       "category": "Truyền thông",
-      "planned": "500.000.000 VNĐ",
+      "planned": "800.000.000 VNĐ",
       "notes": "Quảng cáo, sản xuất nội dung, phát sóng"
     },
     {
       "category": "Hậu cần",
-      "planned": "300.000.000 VNĐ",
+      "planned": "500.000.000 VNĐ",
       "notes": "Vận chuyển, ăn uống, lưu trú"
-    },
-    {
-      "category": "An ninh",
-      "planned": "200.000.000 VNĐ",
-      "notes": "Bảo vệ, kiểm soát an ninh"
     }
   ],
   "risk": [
@@ -177,20 +151,6 @@
       "likelihood": "Thấp",
       "owner": "Công an",
       "mitigation": "Tăng cường lực lượng bảo vệ và kiểm soát"
-    },
-    {
-      "risk": "Vượt ngân sách",
-      "impact": "Trung bình",
-      "likelihood": "Trung bình",
-      "owner": "Ban Tài chính",
-      "mitigation": "Kiểm soát chi phí chặt chẽ và dự trù kinh phí"
-    },
-    {
-      "risk": "Thiếu hụt nhân lực",
-      "impact": "Trung bình",
-      "likelihood": "Thấp",
-      "owner": "Ban Tổ chức",
-      "mitigation": "Huy động sớm và đào tạo bổ sung"
     }
   ],
   "safety": [
@@ -201,14 +161,6 @@
     {
       "topic": "An toàn giao thông",
       "actions": "Phân luồng giao thông, hướng dẫn đỗ xe, điều phối lưu thông"
-    },
-    {
-      "topic": "An toàn cháy nổ",
-      "actions": "Kiểm tra hệ thống điện, chuẩn bị thiết bị chữa cháy"
-    },
-    {
-      "topic": "An toàn thực phẩm",
-      "actions": "Kiểm tra nguồn gốc, đảm bảo vệ sinh an toàn thực phẩm"
     }
   ],
   "sustainability": [
@@ -219,14 +171,6 @@
     {
       "topic": "Tiết kiệm năng lượng",
       "actions": "Sử dụng thiết bị tiết kiệm điện, năng lượng tái tạo"
-    },
-    {
-      "topic": "Giảm thiểu rác thải",
-      "actions": "Hạn chế sử dụng đồ nhựa, phân loại rác, tái sử dụng"
-    },
-    {
-      "topic": "Bảo tồn di sản",
-      "actions": "Bảo vệ các di tích lịch sử, không làm ảnh hưởng môi trường"
     }
   ],
   "raci": [
@@ -236,49 +180,18 @@
       "A": "Ban Tổ chức Trung ương",
       "C": "Các bộ, ngành liên quan",
       "I": "Chính quyền địa phương"
-    },
-    {
-      "task": "Tổ chức lễ kỷ niệm",
-      "R": "Ban Tổ chức Trung ương",
-      "A": "Đơn vị sự kiện chuyên nghiệp",
-      "C": "Ban An ninh và Công an",
-      "I": "Khách mời và người tham gia"
-    },
-    {
-      "task": "Truyền thông",
-      "R": "Ban Tuyên giáo Trung ương",
-      "A": "Cơ quan báo chí truyền thông",
-      "C": "Ban Tổ chức",
-      "I": "Công chúng và người dân"
-    },
-    {
-      "task": "Đảm bảo an ninh",
-      "R": "Bộ Công an",
-      "A": "Công an các cấp",
-      "C": "Ban Tổ chức",
-      "I": "Lực lượng dân quân tự vệ"
     }
   ],
   "kpi": [
     {
       "metric": "Số lượng người tham gia",
       "definition": "Tổng số người tham dự các hoạt động kỷ niệm",
-      "target": "≥ 100.000 người"
+      "target": "≥ 200.000 người"
     },
     {
       "metric": "Độ phủ sóng truyền thông",
       "definition": "Số lượng bài viết, lượt xem, chia sẻ trên các kênh",
-      "target": "≥ 1.000.000 lượt tiếp cận"
-    },
-    {
-      "metric": "Mức độ hài lòng",
-      "definition": "Đánh giá từ khách mời và người tham gia",
-      "target": "≥ 90% hài lòng"
-    },
-    {
-      "metric": "An toàn tuyệt đối",
-      "definition": "Không có sự cố an ninh, an toàn nào",
-      "target": "100% an toàn"
+      "target": "≥ 5.000.000 lượt tiếp cận"
     }
   ],
   "approvals": [
@@ -286,21 +199,6 @@
       "gate": "Phê duyệt kế hoạch tổng thể",
       "criteria": "Kế hoạch chi tiết, ngân sách hợp lý, đảm bảo an ninh",
       "owner": "Ban Chấp hành Trung ương Đảng"
-    },
-    {
-      "gate": "Phê duyệt ngân sách",
-      "criteria": "Ngân sách trong khả năng, hiệu quả cao, minh bạch",
-      "owner": "Bộ Tài chính"
-    },
-    {
-      "gate": "Phê duyệt an ninh",
-      "criteria": "Đảm bảo an ninh trật tự tuyệt đối",
-      "owner": "Bộ Công an"
-    },
-    {
-      "gate": "Phê duyệt địa điểm",
-      "criteria": "Phù hợp về mặt pháp lý và an toàn",
-      "owner": "Chính quyền địa phương"
     }
   ]
 }

@@ -1,0 +1,92 @@
+Chắc chắn rồi, đây là dàn ý chi tiết cho kế hoạch sự kiện kỷ niệm 80 năm Quốc khánh 2/9 theo khung A90, được trình bày dưới dạng JSON theo yêu cầu của bạn.
+
+```json
+{
+  "title": "Kế hoạch Tổ chức Lễ Kỷ niệm 80 năm Ngày Quốc khánh nước Cộng hòa Xã hội Chủ nghĩa Việt Nam (2/9/1945 - 2/9/2025)",
+  "objectives": [
+    "Tôn vinh giá trị lịch sử vĩ đại, khẳng định thành tựu 80 năm xây dựng và bảo vệ Tổ quốc.",
+    "Giáo dục truyền thống yêu nước, lòng tự hào dân tộc và ý chí tự lực, tự cường cho các tầng lớp nhân dân, đặc biệt là thế hệ trẻ.",
+    "Củng cố và tăng cường sức mạnh khối đại đoàn kết toàn dân tộc, tạo động lực thực hiện thắng lợi các mục tiêu phát triển kinh tế - xã hội.",
+    "Quảng bá hình ảnh đất nước, con người Việt Nam hòa bình, hữu nghị, năng động và phát triển đến bạn bè quốc tế."
+  ],
+  "scope": [
+    "Phạm vi địa lý: Toàn quốc, với các hoạt động trọng điểm tại Thủ đô Hà Nội và các thành phố lớn.",
+    "Đối tượng tham gia: Toàn thể nhân dân Việt Nam, kiều bào ta ở nước ngoài, và bạn bè quốc tế.",
+    "Thời gian: 90 ngày, từ T-60 đến T+30 (so với ngày 2/9/2025).",
+    "Nội dung: Chuỗi hoạt động bao gồm Lễ míttinh, diễu binh, diễu hành cấp quốc gia; các hoạt động triển lãm, hội thảo khoa học; chương trình văn hóa, nghệ thuật, thể thao; và các hoạt động đền ơn đáp nghĩa."
+  ],
+  "stakeholders": [
+    "Ban Chấp hành Trung ương Đảng, Quốc hội, Chủ tịch nước, Chính phủ.",
+    "Các Bộ, ban, ngành Trung ương (Bộ Quốc phòng, Bộ Công an, Bộ Văn hóa, Thể thao và Du lịch, Bộ Thông tin và Truyền thông...).",
+    "Ủy ban Trung ương Mặt trận Tổ quốc Việt Nam và các tổ chức thành viên.",
+    "Ủy ban nhân dân các tỉnh, thành phố trực thuộc Trung ương.",
+    "Các cơ quan thông tấn, báo chí.",
+    "Toàn thể nhân dân Việt Nam và cộng đồng người Việt Nam ở nước ngoài."
+  ],
+  "timeline": [
+    {
+      "phase": "Giai đoạn 1: Khởi động và Chuẩn bị",
+      "window": "T-60 đến T-30",
+      "workstreams": [
+        "Thành lập Ban Chỉ đạo, Ban Tổ chức và các Tiểu ban chuyên trách.",
+        "Xây dựng và phê duyệt Kế hoạch tổng thể, kịch bản chi tiết.",
+        "Dự toán, phân bổ và triển khai các thủ tục về ngân sách.",
+        "Phát động các phong trào thi đua yêu nước chào mừng kỷ niệm."
+      ]
+    },
+    {
+      "phase": "Giai đoạn 2: Triển khai cao điểm",
+      "window": "T-30 đến T-7",
+      "workstreams": [
+        "Đẩy mạnh công tác tuyên truyền trên các phương tiện thông tin đại chúng.",
+        "Tổ chức sơ duyệt, tổng duyệt các chương trình chính (diễu binh, diễu hành, nghệ thuật).",
+        "Hoàn thiện công tác hậu cần, kỹ thuật, an ninh, y tế.",
+        "Tổ chức các hoạt động bên lề tại các địa phương trên cả nước."
+      ]
+    },
+    {
+      "phase": "Giai đoạn 3: Thực hiện sự kiện",
+      "window": "T-7 đến T+1",
+      "workstreams": [
+        "Tổ chức Lễ Kỷ niệm chính thức, diễu binh, diễu hành cấp quốc gia vào ngày 2/9.",
+        "Tổ chức Chương trình nghệ thuật đặc biệt vào tối 2/9.",
+        "Triển khai các phương án đảm bảo an ninh, an toàn tuyệt đối.",
+        "Truyền hình, phát thanh trực tiếp các sự kiện chính."
+      ]
+    },
+    {
+      "phase": "Giai đoạn 4: Tổng kết và lan tỏa",
+      "window": "T+1 đến T+30",
+      "workstreams": [
+        "Tổ chức họp tổng kết, đánh giá, rút kinh nghiệm.",
+        "Thực hiện công tác thi đua, khen thưởng cho các tập thể, cá nhân xuất sắc.",
+        "Hoàn tất thủ tục tài chính, quyết toán.",
+        "Sản xuất các sản phẩm truyền thông hậu sự kiện (phim tài liệu, sách ảnh)."
+      ]
+    }
+  ],
+  "program": [
+    {
+      "name": "Lễ Míttinh, Diễu binh, Diễu hành cấp Quốc gia",
+      "goal": "Biểu dương sức mạnh đại đoàn kết toàn dân tộc, khẳng định thành tựu 80 năm xây dựng và bảo vệ Tổ quốc.",
+      "owner": "Ban Tổ chức cấp Nhà nước",
+      "resources": "Lực lượng vũ trang, các khối đại diện nhân dân, phương tiện kỹ thuật quân sự.",
+      "venue": "Quảng trường Ba Đình và các tuyến phố chính tại Hà Nội."
+    },
+    {
+      "name": "Triển lãm '80 năm - Chặng đường vẻ vang'",
+      "goal": "Trưng bày các tư liệu, hình ảnh, hiện vật quý giá về Cách mạng tháng Tám và quá trình phát triển đất nước.",
+      "owner": "Bộ VHTTDL, Bảo tàng Lịch sử Quốc gia",
+      "resources": "Tư liệu, hiện vật, không gian trưng bày, công nghệ trình chiếu tương tác.",
+      "venue": "Trung tâm Triển lãm Văn hóa Nghệ thuật Việt Nam."
+    },
+    {
+      "name": "Chương trình nghệ thuật đặc biệt 'Việt Nam - Khát vọng Rồng bay'",
+      "goal": "Tái hiện lịch sử hào hùng và thể hiện khát vọng phát triển của dân tộc qua ngôn ngữ nghệ thuật.",
+      "owner": "Bộ VHTTDL, Đài Truyền hình Việt Nam",
+      "resources": "Sân khấu quy mô lớn, đạo diễn, nghệ sĩ, công nghệ trình diễn hiện đại.",
+      "venue": "Sân vận động Quốc gia Mỹ Đình, Hà Nội."
+    },
+    {
+      "name": "Hội thảo khoa học cấp quốc gia 'Tầm vóc và giá trị lịch sử của Ngày Quốc khánh 2/9'",
+      "goal": "Luận giải
